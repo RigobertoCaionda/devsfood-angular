@@ -7,13 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   inputActive = false;
+  clicked = false;
+  searchInput = '';
 
   handleInputFocus() {
     this.inputActive = true;
   }
 
   handleInputBlur() {
-    // So deverei colocar false caso o user nao tiver digitado nada, refazer essa parte.
-    this.inputActive = false;
+    if (this.searchInput == '') {
+        this.inputActive = false;
+      }
+  }
+  
+  handleCartClick() {
+    this.clicked = !this.clicked;
   }
 }
