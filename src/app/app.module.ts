@@ -12,6 +12,7 @@ import { SignupComponent } from './views/signup/signup.component';
 import { TesteComponent } from './views/teste/teste.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryComponent } from './views/home/category/category.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    TesteComponent
+    TesteComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

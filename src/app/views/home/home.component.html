@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div class="home-area">
+    <div class="category-area">
+        <label>Selecione uma categoria</label>
+        <div class="category-items">
+            <app-category 
+            [categoryInfo]="{id: 0, name: 'Todas as Categorias', image: '../../../assets/food-and-restaurant.png' }">
+        </app-category>
+           <app-category *ngFor="let category of categories.result" [categoryInfo]="category"></app-category>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="category-item" 
+[tooltip]="categoryInfo.name" 
+placement="top"
+(click)="activeCategory = categoryInfo.id"
+[showDelay]="200" [ngClass]="{ 'whiteColor': activeCategory == categoryInfo.id, 'greyColor': activeCategory !== categoryInfo.id }">
+    <img [src]="categoryInfo.image">
+</div>

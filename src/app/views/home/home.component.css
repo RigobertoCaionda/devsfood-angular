@@ -1,0 +1,11 @@
+.home-area {
+    margin-top: 30px;
+}
+.category-area label {
+    color: #fff;
+    font-size: 1.1rem;
+}
+.category-items {
+    display: flex;
+    margin-top: 10px;
+}
