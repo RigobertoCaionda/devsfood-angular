@@ -18,11 +18,15 @@
         class="search-input" 
         placeholder="Digite um produto..."
         [(ngModel)]="searchInput"
+        (ngModelChange)="handleSearchChange($event)"
         [ngStyle]="{ width: inputActive ? '300px' : '0px' }"
         (focus)="handleInputFocus()"
         (blur)="handleInputBlur()">
     </div>
-    <div><router-outlet></router-outlet></div>
+    
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
   <div class="cart">
     <div class="cart-header" (click)="handleCartClick()">

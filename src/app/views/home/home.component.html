@@ -1,14 +1,39 @@
 <div class="home-area">
-    <div class="category-area">
-        <label>Selecione uma categoria</label>
-        <div class="category-items">
-            <app-category 
-            [categoryInfo]="{id: 0, name: 'Todas as Categorias', image: '../../../assets/food-and-restaurant.png' }">
-        </app-category>
-           <app-category *ngFor="let category of categories.result" [categoryInfo]="category"></app-category>
-        </div>
+  <div class="category-area">
+    <label>Selecione uma categoria</label>
+    <div class="category-items">
+      <app-category
+        (clickedCategory)="getClickedCategory($event)"
+        [categoryInfo]="{
+          id: 0,
+          name: 'Todas as Categorias',
+          image: '../../../assets/food-and-restaurant.png'
+        }"
+      >
+      </app-category>
+      <app-category
+        (clickedCategory)="getClickedCategory($event)"
+        *ngFor="let category of categories.result"
+        [categoryInfo]="category"
+      ></app-category>
     </div>
-    <div class="products-area">
-        <app-product-item class="product" *ngFor="let product of products.result?.data" [product]="product"></app-product-item>
+  </div>
+  <div class="products-area">
+    <app-product-item
+      class="product"
+      *ngFor="let product of products.result?.data"
+      [product]="product"
+    >
+    </app-product-item>
+  </div>
+  <div class="pagination-area">
+    <div
+      class="page"
+      *ngFor="let page of totalPages; let i = index"
+      (click)="handlePageClick(i)"
+      [style.background-color]="activePage == i + 1 ? '#ccc' : '#fff'"
+    >
+      {{ i + 1 }}
     </div>
+  </div>
 </div>

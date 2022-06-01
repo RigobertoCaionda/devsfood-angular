@@ -18,3 +18,18 @@
     width: 31%;
     margin: 0 15px 15px 0; /*Precisei adicionar isso para funcionar para dar margem*/
 }
+.pagination-area {
+    display: flex;
+}
+.page {
+    width: 30px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.page:last-child {
+    margin-right: 0;
+}

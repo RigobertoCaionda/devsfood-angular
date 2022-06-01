@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Category } from 'src/app/core/models/category';
 
 @Component({
@@ -7,6 +7,7 @@ import { Category } from 'src/app/core/models/category';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  @Output() clickedCategory = new EventEmitter();
   activeCategory = 0;
   @Input() categoryInfo: Category = {} as Category;
   constructor() { }
@@ -14,4 +15,8 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleCategoryClick(id: number) {
+    this.activeCategory = id;
+   this.clickedCategory.emit(this.activeCategory);
+  }
 }
