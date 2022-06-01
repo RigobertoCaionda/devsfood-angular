@@ -8,4 +8,7 @@
            <app-category *ngFor="let category of categories.result" [categoryInfo]="category"></app-category>
         </div>
     </div>
+    <div class="products-area">
+        <app-product-item class="product" *ngFor="let product of products.result?.data" [product]="product"></app-product-item>
+    </div>
 </div>

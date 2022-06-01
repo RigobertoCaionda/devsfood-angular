@@ -9,3 +9,12 @@
     display: flex;
     margin-top: 10px;
 }
+.products-area {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.product {
+    width: 31%;
+    margin: 0 15px 15px 0; /*Precisei adicionar isso para funcionar para dar margem*/
+}

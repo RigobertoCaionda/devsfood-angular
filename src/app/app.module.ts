@@ -13,6 +13,7 @@ import { TesteComponent } from './views/teste/teste.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './views/home/category/category.component';
+import { ProductItemComponent } from './views/home/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CategoryComponent } from './views/home/category/category.component';
     SigninComponent,
     SignupComponent,
     TesteComponent,
-    CategoryComponent
+    CategoryComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,

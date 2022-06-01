@@ -12,4 +12,8 @@ export class ProductService {
   getCategories(): Observable<any> {
     return this.apiService.get('/categories');
   }
+
+  getProducts(): Observable<any> {
+    return this.apiService.get('/products');
+  }
 }

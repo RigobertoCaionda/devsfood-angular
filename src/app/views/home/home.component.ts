@@ -8,6 +8,8 @@ import { ProductService } from 'src/app/shared/services/product.service';
 })
 export class HomeComponent implements OnInit {
   categories: any = [];
+  products: any = [];
+
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -16,6 +18,11 @@ export class HomeComponent implements OnInit {
         this.categories = categories;
       },
       error: error => console.log(error) // Fazer aparecer esse erro em forma de modal
+    });
+    
+    this.productService.getProducts().subscribe({
+      next: products => this.products = products,
+      error: error => console.log(error)
     });
   }
 
