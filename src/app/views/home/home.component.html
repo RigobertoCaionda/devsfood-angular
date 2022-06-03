@@ -9,12 +9,14 @@
           name: 'Todas as Categorias',
           image: '../../../assets/food-and-restaurant.png'
         }"
+        [activeCategory]="activeCategory"
       >
       </app-category>
       <app-category
         (clickedCategory)="getClickedCategory($event)"
         *ngFor="let category of categories.result"
         [categoryInfo]="category"
+        [activeCategory]="activeCategory"
       ></app-category>
     </div>
   </div>

@@ -1,7 +1,13 @@
-<div class="category-item" 
-[tooltip]="categoryInfo.name" 
-placement="top"
-(click)="handleCategoryClick(categoryInfo.id)"
-[showDelay]="100" [ngClass]="{ 'whiteColor': activeCategory == categoryInfo.id, 'greyColor': activeCategory !== categoryInfo.id }">
-    <img [src]="categoryInfo.image">
+<div
+  class="category-item"
+  [tooltip]="categoryInfo.name"
+  placement="top"
+  (click)="handleCategoryClick(categoryInfo.id)"
+  [showDelay]="100"
+  [ngClass]="{
+    whiteColor: activeCategory == categoryInfo.id,
+    greyColor: activeCategory !== categoryInfo.id
+  }"
+>
+  <img [src]="categoryInfo.image" />
 </div>

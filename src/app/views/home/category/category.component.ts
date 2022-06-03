@@ -8,15 +8,15 @@ import { Category } from 'src/app/core/models/category';
 })
 export class CategoryComponent implements OnInit {
   @Output() clickedCategory = new EventEmitter();
-  activeCategory = 0;
+  @Input() activeCategory = 0;
   @Input() categoryInfo: Category = {} as Category;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  
   handleCategoryClick(id: number) {
-    this.activeCategory = id;
-   this.clickedCategory.emit(this.activeCategory);
+   this.clickedCategory.emit(id);
   }
 }
