@@ -10,10 +10,12 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class HomeComponent implements OnInit {
   categories: any = [];
   products: any = [];
+  product: any;
   totalPages: Array<any> = [];
   activePage = 1;
   activeCategory = 0;
   searchText = '';
+  modalStatus = false;
 
   constructor(private productService: ProductService) {}
 
@@ -50,6 +52,15 @@ export class HomeComponent implements OnInit {
     this.activeCategory = category;
     this.activePage = 1;
     this.getProducts();
+  }
+
+  getClickedProduct(productId: any) {
+    this.modalStatus = true;
+    this.product = productId.id; // Fazer a req aqui e atualizar o valor de product.
+  }
+
+  cancelBtnClicked() {
+    this.modalStatus = false;
   }
 
   getProducts() {

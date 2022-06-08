@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './views/home/category/category.component';
 import { ProductItemComponent } from './views/home/product-item/product-item.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductItemComponent } from './views/home/product-item/product-item.com
     TooltipModule,
     RouterModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

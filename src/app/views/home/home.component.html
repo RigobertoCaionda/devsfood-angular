@@ -25,6 +25,7 @@
       class="product"
       *ngFor="let product of products.result?.data"
       [product]="product"
+      (clickedProduct)="getClickedProduct($event)"
     >
     </app-product-item>
   </div>
@@ -39,3 +40,8 @@
     </div>
   </div>
 </div>
+<app-modal
+  [ngStyle]="{ display: modalStatus ? 'flex' : 'none' }"
+  [product]="product"
+  (cancelBtnClicked)="cancelBtnClicked()"
+></app-modal>
