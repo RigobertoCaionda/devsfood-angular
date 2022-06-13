@@ -11,8 +11,12 @@ export class AppComponent implements OnInit {
   searchInput = '';
 
   constructor(private productService: ProductService) {}
-
-  ngOnInit() { }
+  cart!: any[];
+  ngOnInit() {
+    this.productService.getCartValue().subscribe({
+      next: res => this.cart = res
+    });
+   }
 
   handleInputFocus() {
     this.inputActive = true;

@@ -7,6 +7,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class ProductService {
   search = new BehaviorSubject<string>('');
+  cart = new BehaviorSubject<any[]>([]);
 
   constructor(private apiService: ApiService) { }
 
@@ -27,6 +28,14 @@ export class ProductService {
     }
     let queryString = new URLSearchParams(fields).toString();
     return this.apiService.get(`/products?${queryString}`);
+  }
+
+  setCartValue(product: any) {
+    this.cart.next(product);
+  }
+
+  getCartValue() {
+    return this.cart;
   }
 
   setSearchValue(search: string) {

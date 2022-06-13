@@ -14,7 +14,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleProductItemClick(productId: number) {
-    this.clickedProduct.emit({ id: productId });
+  handleProductItemClick(product: any) {
+    this.clickedProduct.emit({ product });
   }
 }

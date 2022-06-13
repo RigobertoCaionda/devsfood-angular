@@ -25,7 +25,7 @@
       class="product"
       *ngFor="let product of products.result?.data"
       [product]="product"
-      (clickedProduct)="getClickedProduct($event)"
+      (clickedProduct)="getClickedProduct(product)"
     >
     </app-product-item>
   </div>

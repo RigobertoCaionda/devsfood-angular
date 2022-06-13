@@ -4,8 +4,8 @@
             <div class="modal-img"><img src="../../../../assets/teste_img.jpg"></div>
             <div class="modal-info">
                 <div class="modal-info-top">
-                    <div class="modal-title">Torta de Chocolate</div>
-                    <div class="modal-desc">algo, outro, tipo</div>
+                    <div class="modal-title">{{ product?.name }}</div>
+                    <div class="modal-desc">{{ product?.ingredients }}</div>
                 </div>
                 <div class="modal-info-bottom">
                     <div class="quantity-area">
@@ -13,13 +13,13 @@
                         <div class="quantity">{{ qt }}</div>
                         <div class="plus-btn"><img src="../../../../assets/plus.png" (click)="handleClick('+')"></div>
                     </div>
-                    <div class="price-area">R$ {{ product }}</div>
+                    <div class="price-area">R$ {{ (product?.price * this.qt).toFixed(2) }}</div><!--Criar um pipe para fazer o toFixed-->
                 </div>
             </div>
         </div>
         <div class="modal-bottom">
             <div class="cancel-btn default-btn" (click)="cancel()">Cancelar</div>
-            <div class="add-cart-btn default-btn">Adicionar ao Carrinho</div>
+            <div class="add-cart-btn default-btn" (click)="addCart()">Adicionar ao Carrinho</div>
         </div>
     </div>
 </div>

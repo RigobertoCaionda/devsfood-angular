@@ -31,7 +31,7 @@
   <div class="cart">
     <div class="cart-header" (click)="handleCartClick()">
       <div class="cart-header-left">
-        <img src="../assets/cart.png">Meu Carrinho (0)
+        <img src="../assets/cart.png">Meu Carrinho ({{ cart.length }})
       </div>
       <div class="cart-header-right" [ngStyle]="{ display: clicked ? 'block' : 'none'}">
         <img src="../assets/down.png">

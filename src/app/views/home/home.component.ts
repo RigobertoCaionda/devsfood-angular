@@ -54,9 +54,9 @@ export class HomeComponent implements OnInit {
     this.getProducts();
   }
 
-  getClickedProduct(productId: any) {
+  getClickedProduct(product: any) {
     this.modalStatus = true;
-    this.product = productId.id; // Fazer a req aqui e atualizar o valor de product.
+    this.product = product; // Fazer a req aqui e atualizar o valor de product.
   }
 
   cancelBtnClicked() {
