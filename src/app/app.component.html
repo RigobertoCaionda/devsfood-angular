@@ -38,7 +38,22 @@
       </div>
     </div>
     <div class="cart-body" [ngStyle]="{ display: clicked ? 'block' : 'none'}">
-      mmm
+      <div *ngFor="let product of cart">
+        <div class="cart-product">
+          <div class="img-area"><img [src]="product.image"></div>
+          <div class="info-area">
+            <div class="desc-area">
+              <div class="title">{{ product.name }}</div>
+              <div class="price">R$ {{ product.price }}</div>
+            </div>
+            <div class="count-area">
+              <div class="minus-btn"><img src="../assets/minus.png"></div>
+              <div class="quantity">{{ product.qt }}</div>
+              <div class="plus-btn"><img src="../assets/plus.png"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
