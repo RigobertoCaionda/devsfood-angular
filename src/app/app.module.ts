@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './views/home/category/category.component';
 import { ProductItemComponent } from './views/home/product-item/product-item.component';
 import { SharedModule } from './shared/shared.module';
+import { CartProductComponent } from './views/cart-product/cart-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
     SignupComponent,
     TesteComponent,
     CategoryComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    CartProductComponent
   ],
   imports: [
     BrowserModule,

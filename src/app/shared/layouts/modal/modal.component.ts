@@ -60,9 +60,9 @@ export class ModalComponent implements OnInit {
       next: (res) => (this.cart = res),
     });
     let cartProduct = { ...this.product, qt: this.qt };
-    let sameProduct = this.cart.findIndex((item) => item.id == cartProduct.id);
-    if (sameProduct > -1) {
-      this.cart[sameProduct].qt += cartProduct.qt;
+    let index = this.cart.findIndex((item) => item.id == cartProduct.id);
+    if (index > -1) {
+      this.cart[index].qt += cartProduct.qt;
     } else {
       this.cart.push(cartProduct);
     }
