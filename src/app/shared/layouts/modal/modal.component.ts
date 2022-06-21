@@ -6,7 +6,6 @@ import {
   Input,
   OnInit,
   Output,
-  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { ProductService } from '../../services/product.service';
@@ -18,10 +17,12 @@ import { ProductService } from '../../services/product.service';
 })
 export class ModalComponent implements OnInit {
   @Input() product: any;
+  @Input() modalStatus = false;
   @Output() cancelBtnClicked = new EventEmitter();
   @ViewChild('modal') modal!: ElementRef;
   qt = 1;
   cart: any[] = [];
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {}
@@ -38,15 +39,11 @@ export class ModalComponent implements OnInit {
     }
   }
 
-  @HostListener('document:click', ['$event.target']) onClick(
-    targetElement: HTMLElement
-  ) {
-    if (!targetElement) {
-      return;
-    }
+  handleModalClick(targetElement: any) {
+    console.log(targetElement)
     const modalIsClicked = this.modal.nativeElement.contains(targetElement);
     if (!modalIsClicked) {
-      //this.cancelBtnClicked.emit('clicado'); // Nessa linha
+      this.cancel();
     }
   }
 

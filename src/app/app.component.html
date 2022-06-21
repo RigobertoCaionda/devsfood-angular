@@ -37,7 +37,7 @@
         <img src="../assets/down.png">
       </div>
     </div>
-    <div class="cart-body" [ngStyle]="{ display: clicked ? 'block' : 'none'}">
+    <div class="cart-body" [ngStyle]="{ display: clicked ? 'block' : 'none' }">
       <app-cart-product *ngFor="let product of cart" [product]="product"></app-cart-product>
     </div>
   </div>
