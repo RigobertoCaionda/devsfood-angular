@@ -40,7 +40,6 @@ export class ModalComponent implements OnInit {
   }
 
   handleModalClick(targetElement: any) {
-    console.log(targetElement)
     const modalIsClicked = this.modal.nativeElement.contains(targetElement);
     if (!modalIsClicked) {
       this.cancel();
