@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ProductService } from './shared/services/product.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   inputActive = false;
   clicked = false;
   searchInput = '';
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private translate: TranslateService
+  ) {
+  }
   cart!: any[];
   ngOnInit() {
     this.productService.getCartValue().subscribe({
-      next: res => this.cart = res
+      next: (res) => (this.cart = res),
     });
-   }
+    this.translate.setDefaultLang('pt');
+  }
 
   handleInputFocus() {
     this.inputActive = true;
@@ -24,10 +30,10 @@ export class AppComponent implements OnInit {
 
   handleInputBlur() {
     if (this.searchInput == '') {
-        this.inputActive = false;
-      }
+      this.inputActive = false;
+    }
   }
-  
+
   handleCartClick() {
     this.clicked = !this.clicked;
   }
