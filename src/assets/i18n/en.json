@@ -2,5 +2,10 @@
     "profile": "Profile",
     "english": "English",
     "portuguese": "Portuguese",
-    "select_category_text": "Select a category"
+    "select_category_text": "Select a category",
+    "store": "Store",
+    "orders": "Orders",
+    "admin": "Admin Page",
+    "my_cart": "My Cart",
+    "search_input_placeholder": "Type a product"
 }

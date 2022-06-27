@@ -1,6 +1,11 @@
 {
-    "profile": "Perfil",
+    "profile": "Meu Perfil",
     "english": "Inglês",
     "portuguese": "Português",
-    "select_category_text": "Selecione uma categoria"
+    "select_category_text": "Selecione uma categoria",
+    "store": "Loja",
+    "orders": "Pedidos",
+    "admin": "Administrador",
+    "my_cart": "Meu Carrinho",
+    "search_input_placeholder": "Digite um produto"
 }

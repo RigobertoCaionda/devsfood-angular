@@ -1,16 +1,19 @@
 <div class="container">
   <div class="menu">
-    <div class="menu-item" tooltip="Loja" placement="right" [showDelay]="200">
+    <div class="menu-item" tooltip="{{ 'store' | translate }}" placement="right" [showDelay]="200">
       <a routerLink="/" routerLinkActive="active" 
       [routerLinkActiveOptions]="{ exact: true }"><img src="../assets/store.png"></a>
     </div>
-    <div class="menu-item" tooltip="Pedidos" placement="right" [showDelay]="200">
+    <div class="menu-item" tooltip="{{ 'orders' | translate }}" placement="right" [showDelay]="200" 
+    *ngIf="this.roleVerification(['User', 'Admin'])">
       <a routerLink="/orders" routerLinkActive="active"><img src="../assets/order.png"></a>
     </div>
-    <div class="menu-item" tooltip="Meu Perfil" placement="right" [showDelay]="200">
+    <div class="menu-item" tooltip="{{ 'profile' | translate }}" placement="right" [showDelay]="200" 
+    *ngIf="this.roleVerification(['User', 'Admin'])">
       <a routerLink="/profile" routerLinkActive="active"><img src="../assets/profile.png"></a>
     </div>
-    <div class="menu-item" tooltip="Administrador" placement="right" [showDelay]="200">
+    <div class="menu-item" tooltip="{{ 'admin' | translate }}" placement="right" [showDelay]="200"
+    *ngIf="this.roleVerification(['Admin'])">
       <a routerLink="/admin/" routerLinkActive="active"><img src="../assets/profile.png"></a>
     </div>
   </div>
@@ -19,7 +22,7 @@
       <div class="logo-area"><img src="../assets/logo.png"></div>
       <input type="text"
         class="search-input" 
-        placeholder="Digite um produto..."
+        placeholder="{{ 'search_input_placeholder' | translate }}..."
         [(ngModel)]="searchInput"
         (ngModelChange)="handleSearchChange($event)"
         [ngStyle]="{ width: inputActive ? '300px' : '0px' }"
@@ -34,7 +37,7 @@
   <div class="cart">
     <div class="cart-header" (click)="handleCartClick()">
       <div class="cart-header-left">
-        <img src="../assets/cart.png">Meu Carrinho ({{ cart.length }})
+        <img src="../assets/cart.png">{{ 'my_cart' | translate }} ({{ cart.length }})
       </div>
       <div class="cart-header-right" [ngStyle]="{ display: clicked ? 'block' : 'none'}">
         <img src="../assets/down.png">

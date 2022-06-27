@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from './shared/services/auth.service';
 import { ProductService } from './shared/services/product.service';
 @Component({
   selector: 'app-root',
@@ -13,15 +14,18 @@ export class AppComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private translate: TranslateService
-  ) {
-  }
+    private translate: TranslateService,
+    private authService: AuthService
+  ) {}
+
+  userRole = '';
   cart!: any[];
   ngOnInit() {
     this.productService.getCartValue().subscribe({
       next: (res) => (this.cart = res),
     });
     this.translate.setDefaultLang('pt');
+    this.userRole = this.authService.getRoles()[0];
   }
 
   handleInputFocus() {
@@ -40,5 +44,14 @@ export class AppComponent implements OnInit {
 
   handleSearchChange(event: any) {
     this.productService.setSearchValue(event); // Mudando o valor para toda aplicacao sempre que houver alteracao
+  }
+
+  roleVerification(expectedRoles: string[]) {
+    let index = expectedRoles.findIndex(item => item == this.userRole);
+    if(index > -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
