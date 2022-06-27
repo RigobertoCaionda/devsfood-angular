@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { CartProductComponent } from './views/cart-product/cart-product.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { Teste2Component } from './views/teste2/teste2.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,7 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TesteComponent,
     CategoryComponent,
     ProductItemComponent,
-    CartProductComponent
+    CartProductComponent,
+    Teste2Component
   ],
   imports: [
     BrowserModule,

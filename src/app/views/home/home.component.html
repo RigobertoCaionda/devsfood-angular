@@ -1,6 +1,6 @@
 <div class="home-area">
   <div class="category-area">
-    <label>Selecione uma categoria</label>
+    <label>{{ 'select_category_text' | translate }}</label>
     <div class="category-items">
       <app-category
         (clickedCategory)="getClickedCategory($event)"
