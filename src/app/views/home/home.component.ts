@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   activeCategory = 0;
   searchText = '';
   modalStatus = false;
-  language = 'Português';
+  
   constructor(
     private productService: ProductService,
     private translate: TranslateService
@@ -77,14 +77,5 @@ export class HomeComponent implements OnInit {
         },
         error: (error) => console.log(error),
       });
-  }
-
-  switchLanguage(language: string) {
-    this.translate.use(language);
-    if (language == 'en') {
-      this.language = 'English';
-    } else if (language == 'pt') {
-      this.language = 'Português';
-    }
   }
 }

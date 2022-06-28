@@ -28,3 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Todo: Criar uma diretiva para o toFixed, criar interceptor na hora do token e um para enviar uma certa mensagem quando deu sucesso ou deu errado, criar signin, signup, responsividade, trabalhar nos outros 2 menus, ngx translate.
 Enviar o role a partir do backend.
+Vai ter permissions (editar, consultar, criar, atualizar) alem do role, para que nem todos do CRM por exemplo possam apagar, alguns só vão consultar.

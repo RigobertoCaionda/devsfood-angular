@@ -7,5 +7,11 @@
     "orders": "Orders",
     "admin": "Admin Page",
     "my_cart": "My Cart",
-    "search_input_placeholder": "Type a product"
+    "search_input_placeholder": "Type a product",
+    "your_email": "Enter your email",
+    "your_password": "Enter your password",
+    "remember_me": "Remember me",
+    "signin_button": "Login",
+    "forgot_password": "Forgot your Password",
+    "create_account": "Create an account"
 }

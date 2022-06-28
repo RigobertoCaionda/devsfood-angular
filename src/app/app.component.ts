@@ -11,15 +11,16 @@ export class AppComponent implements OnInit {
   inputActive = false;
   clicked = false;
   searchInput = '';
-
+  language = 'Português';
+  userRole = '';
+  cart!: any[];
+  
   constructor(
     private productService: ProductService,
     private translate: TranslateService,
     private authService: AuthService
   ) {}
 
-  userRole = '';
-  cart!: any[];
   ngOnInit() {
     this.productService.getCartValue().subscribe({
       next: (res) => (this.cart = res),
@@ -52,6 +53,15 @@ export class AppComponent implements OnInit {
       return true;
     } else {
       return false;
+    }
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
+    if (language == 'en') {
+      this.language = 'English';
+    } else if (language == 'pt') {
+      this.language = 'Português';
     }
   }
 }
