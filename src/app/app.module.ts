@@ -10,7 +10,7 @@ import { HomeComponent } from './views/home/home.component';
 import { SigninComponent } from './views/signin/signin.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { TesteComponent } from './views/teste/teste.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './views/home/category/category.component';
 import { ProductItemComponent } from './views/home/product-item/product-item.component';
@@ -43,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     SharedModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

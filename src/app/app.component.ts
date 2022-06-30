@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     this.clicked = !this.clicked;
   }
 
-  handleSearchChange(event: any) {
+  handleSearchChange(event: string) {
     this.productService.setSearchValue(event); // Mudando o valor para toda aplicacao sempre que houver alteracao
   }
 

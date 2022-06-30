@@ -4,3 +4,6 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Helvetica, Arial;
 }
+.is-invalid {
+    border: 1px solid #f00 !important;
+}

@@ -16,7 +16,7 @@
                         <div class="quantity">{{ qt }}</div>
                         <div class="plus-btn"><img src="../../../../assets/plus.png" (click)="handleClick('+')"></div>
                     </div>
-                    <div class="price-area">R$ {{ (product?.price * this.qt).toFixed(2) }}</div><!--Criar um pipe para fazer o toFixed-->
+                    <div class="price-area">R$ {{ product?.price * this.qt | numberFormatter: 2 }}</div>
                 </div>
             </div>
         </div>

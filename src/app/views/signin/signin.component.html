@@ -1,21 +1,35 @@
 <div class="container">
-    <form>
-        <h1 class="title">Login</h1>
-        <div class="input-area">
-            <input type="text" placeholder="{{ 'your_email' | translate }}">
-        </div>
-        <div class="input-area">
-            <input type="text" placeholder="{{ 'your_password' | translate }}">
-        </div>
-        <div class="rememberme">
-            <input type="checkbox"> {{ 'remember_me' | translate }}
-        </div>
-        <div class="input-area">
-            <button>{{ 'signin_button' | translate }}</button>
-        </div>
-        <div class="options-area">
-           <a href="">{{ 'forgot_password' | translate }}?</a>
-           <a href="">{{ 'create_account' | translate }}</a>
-        </div>
-    </form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 class="title">Login</h1>
+    <div class="input-area">
+      <input
+        type="text"
+        placeholder="{{ 'your_email' | translate }}"
+        formControlName="email"
+        [ngClass]="this.helperService.applyCssError(form, 'email')"
+      />
+      <app-error
+        [showError]="this.helperService.verifyValidTouched(form, 'email')"
+        errorMsg="Preencha corretamente o email"
+      ></app-error>
+    </div>
+    <div class="input-area">
+      <input
+        type="password"
+        placeholder="{{ 'your_password' | translate }}"
+        formControlName="password"
+      />
+    </div>
+    <div class="rememberme">
+      <input type="checkbox" formControlName="rememberPassword" />
+      {{ "remember_me" | translate }}
+    </div>
+    <div class="input-area">
+      <button>{{ "signin_button" | translate }}</button>
+    </div>
+    <div class="options-area">
+      <a href="">{{ "forgot_password" | translate }}?</a>
+      <a href="">{{ "create_account" | translate }}</a>
+    </div>
+  </form>
 </div>

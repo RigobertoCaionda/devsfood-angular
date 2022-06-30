@@ -4,14 +4,12 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './views/home/home.component';
 import { NotfoundComponent } from './shared/layouts/notfound/notfound.component';
 import { SigninComponent } from './views/signin/signin.component';
-import { SignupComponent } from './views/signup/signup.component';
 import { TesteComponent } from './views/teste/teste.component';
 import { HasRoleGuard } from './core/guards/has-role.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signin', component: SigninComponent },
-  { path: 'signup', component: SignupComponent },
   {
     path: 'orders',
     component: TesteComponent,
