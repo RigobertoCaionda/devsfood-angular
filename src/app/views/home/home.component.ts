@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { debounceTime } from 'rxjs';
+import { Product } from 'src/app/core/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class HomeComponent implements OnInit {
   categories: any = [];
   products: any = [];
-  product: any;
+  product!: Product;
   totalPages: Array<any> = [];
   activePage = 1;
   activeCategory = 0;
@@ -58,7 +59,7 @@ export class HomeComponent implements OnInit {
     this.getProducts();
   }
 
-  getClickedProduct(product: any) {
+  getClickedProduct(product: Product) {
     this.modalStatus = true;
     this.product = product;
   }
