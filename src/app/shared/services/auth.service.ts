@@ -19,4 +19,10 @@ export class AuthService {
   getToken() {
     return this.cookieService.get('token');
   }
+
+  // Trocar isso, deve vir do backend
+  getRoles() {
+    const roles = ['']; // Trocar isso, tem que vir do service. Se o service enviar user e o expectedRole é Admin, vai falhar. Osegredo esta aqui
+    return roles;
+  }
 }

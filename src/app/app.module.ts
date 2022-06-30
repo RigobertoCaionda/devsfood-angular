@@ -11,12 +11,18 @@ import { SigninComponent } from './views/signin/signin.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { TesteComponent } from './views/teste/teste.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './views/home/category/category.component';
 import { ProductItemComponent } from './views/home/product-item/product-item.component';
 import { SharedModule } from './shared/shared.module';
 import { CartProductComponent } from './views/cart-product/cart-product.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { Teste2Component } from './views/teste2/teste2.component';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +32,8 @@ import { CartProductComponent } from './views/cart-product/cart-product.componen
     TesteComponent,
     CategoryComponent,
     ProductItemComponent,
-    CartProductComponent
+    CartProductComponent,
+    Teste2Component
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,17 @@ import { CartProductComponent } from './views/cart-product/cart-product.componen
     RouterModule,
     FormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient] 
+      }
+})
+  ],
+  exports: [
+    TranslateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

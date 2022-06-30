@@ -1,0 +1,17 @@
+{
+    "profile": "Meu Perfil",
+    "english": "Inglês",
+    "portuguese": "Português",
+    "select_category_text": "Selecione uma categoria",
+    "store": "Loja",
+    "orders": "Pedidos",
+    "admin": "Administrador",
+    "my_cart": "Meu Carrinho",
+    "search_input_placeholder": "Digite um produto",
+    "your_email": "Digite seu email",
+    "your_password": "Digite sua senha",
+    "remember_me": "Lembrar senha",
+    "signin_button": "Entrar",
+    "forgot_password": "Esqueceu sua senha",
+    "create_account": "Criar uma conta"
+}
