@@ -1,6 +1,6 @@
 <div class="product-item" (click)="handleProductItemClick(product.id)">
   <div class="product-item-img-area">
-    <img [src]="product.image" />
+    <img [src]="product.image[0]?.url" />
   </div>
   <div class="info-area">
     <div class="desc-area">

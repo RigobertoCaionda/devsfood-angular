@@ -1,0 +1,111 @@
+.container {
+    width: 700px;
+    height: 500px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.input-area {
+    width: 500px;
+    margin-bottom: 20px;
+}
+.gender {
+    width: 500px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+.input-area button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #00980d;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.input-area input {
+    width: 100%;
+    padding: 8px;
+    outline: 0;
+    border: 1px solid #00980d;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.title {
+    margin-bottom: 20px;
+}
+
+.controls {
+    width: 500px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.controls button {
+    outline: 0;
+    border: 0;
+    background-color: #00980d;
+    padding: 5px;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+.checkbox-area {
+    width: 500px;
+    margin-bottom: 10px;
+}
+.checkbox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.first-group {
+    display: none;
+}
+.second-group {
+    display: none;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+.wrapper input {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+.input-area select {
+    width: 100%;
+    margin-top: 7px;
+    font-size: 1rem;
+    height: 50px;
+}
+.gender-inputs input {
+    width: 15px;
+    height: 15px;
+}
+
+.page {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: blue;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 10px;
+}
+.pagination {
+    width: 650px;
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    font-size: 1.1rem;
+}
+.gender-inputs span {
+    margin: 0 10px;
+}

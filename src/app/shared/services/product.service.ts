@@ -3,31 +3,34 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
   search = new BehaviorSubject<string>('');
   cart = new BehaviorSubject<any[]>([]);
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {}
 
   getCategories(): Observable<any> {
     return this.apiService.get('/categories');
   }
 
-  getProducts(category: number, page: number, search: string): Observable<any> {
+  getProducts(category: number, search: string, take: number, skip: number): Observable<any> {
     let fields: any = {};
-    if(category !== 0) {
+    if (category !== 0) { // Talvez isso saia.
       fields.category = category;
     }
-    if(page > 0) {
-      fields.page = page;
+    if (take) {
+      fields.take = take;
     }
-    if(search !== '') {
+    if (skip) {
+      fields.skip = skip;
+    }
+    if (search !== '') {
       fields.search = search;
     }
     let queryString = new URLSearchParams(fields).toString();
-    return this.apiService.get(`/products?${queryString}`);
+    return this.apiService.get(`/product?${queryString}`);
   }
 
   setCartValue(product: any) {

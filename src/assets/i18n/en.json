@@ -13,5 +13,10 @@
     "remember_me": "Remember me",
     "signin_button": "Login",
     "forgot_password": "Forgot your Password",
-    "create_account": "Create an account"
+    "create_account": "Create an account",
+    "cancel": "Cancel",
+    "add_cart": "Add to Cart",
+    "back": "Back",
+    "signup": "sign up",
+    "signup_page": "Sign Up Page"
 }

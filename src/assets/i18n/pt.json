@@ -13,5 +13,10 @@
     "remember_me": "Lembrar senha",
     "signin_button": "Entrar",
     "forgot_password": "Esqueceu sua senha",
-    "create_account": "Criar uma conta"
+    "create_account": "Criar uma conta",
+    "cancel": "Cancelar",
+    "add_cart": "Adicionar ao Carrinho",
+    "back": "Voltar",
+    "signup": "cadastrar",
+    "signup_page": "Página de Cadastro"
 }

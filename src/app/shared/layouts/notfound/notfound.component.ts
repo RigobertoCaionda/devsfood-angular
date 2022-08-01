@@ -11,6 +11,7 @@ export class NotfoundComponent implements OnInit {
   constructor(private location: Location) { }
 
   ngOnInit(): void {
+    document.title = 'Not found page';
   }
 
   cancel() {

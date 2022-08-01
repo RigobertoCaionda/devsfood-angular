@@ -1,28 +1,47 @@
-<div class="modal-area" 
-[ngStyle]="{ display: modalStatus ? 'flex' : 'none' }"
-(click)="handleModalClick($event.target)"
+<div
+  class="modal-area"
+  [ngStyle]="{ display: modalStatus ? 'flex' : 'none' }"
+  (click)="handleModalClick($event.target)"
 >
-    <div class="modal-product" #modal>
-        <div class="modal-top">
-            <div class="modal-img"><img src="../../../../assets/teste_img.jpg"></div>
-            <div class="modal-info">
-                <div class="modal-info-top">
-                    <div class="modal-title">{{ product?.name }}</div>
-                    <div class="modal-desc">{{ product?.ingredients }}</div>
-                </div>
-                <div class="modal-info-bottom">
-                    <div class="quantity-area">
-                        <div class="minus-btn"><img src="../../../../assets/minus.png" (click)="handleClick('-')"></div>
-                        <div class="quantity">{{ qt }}</div>
-                        <div class="plus-btn"><img src="../../../../assets/plus.png" (click)="handleClick('+')"></div>
-                    </div>
-                    <div class="price-area">R$ {{ (product?.price * this.qt).toFixed(2) }}</div><!--Criar um pipe para fazer o toFixed-->
-                </div>
+  <div class="modal-product" #modal>
+    <div class="modal-top">
+      <div class="modal-img">
+        <img src="../../../../assets/teste_img.jpg" />
+      </div>
+      <div class="modal-info">
+        <div class="modal-info-top">
+          <div class="modal-title">{{ product?.name }}</div>
+          <div class="modal-desc">{{ product?.ingredients }}</div>
+        </div>
+        <div class="modal-info-bottom">
+          <div class="quantity-area">
+            <div class="minus-btn">
+              <img
+                src="../../../../assets/minus.png"
+                (click)="handleClick('-')"
+              />
             </div>
+            <div class="quantity">{{ qt }}</div>
+            <div class="plus-btn">
+              <img
+                src="../../../../assets/plus.png"
+                (click)="handleClick('+')"
+              />
+            </div>
+          </div>
+          <div class="price-area">
+            R$ {{ product?.price * this.qt | numberFormatter: 2 }}
+          </div>
         </div>
-        <div class="modal-bottom">
-            <div class="cancel-btn default-btn" (click)="cancel()">Cancelar</div>
-            <div class="add-cart-btn default-btn" (click)="addCart()">Adicionar ao Carrinho</div>
-        </div>
+      </div>
     </div>
+    <div class="modal-bottom">
+      <div class="cancel-btn default-btn" (click)="cancel()">
+        {{ "cancel" | translate }}
+      </div>
+      <div class="add-cart-btn default-btn" (click)="addCart()">
+        {{ "add_cart" | translate }}
+      </div>
+    </div>
+  </div>
 </div>
