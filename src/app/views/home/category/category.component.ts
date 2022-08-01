@@ -12,8 +12,7 @@ export class CategoryComponent implements OnInit {
   @Input() categoryInfo: Category = {} as Category;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   
   handleCategoryClick(id: number) {

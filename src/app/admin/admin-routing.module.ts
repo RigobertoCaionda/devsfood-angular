@@ -12,7 +12,6 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
-    // Verificar as permissoes necessarias
   }
 ];
 

@@ -1,0 +1,9 @@
+.signup-btn {
+   text-decoration: none;
+   padding: 10px;
+   background-color: #000;
+   display: inline-block;
+   margin-top: 20px;
+   color: #fff;
+   border-radius: 5px;
+}

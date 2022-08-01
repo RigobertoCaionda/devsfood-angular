@@ -1,42 +1,153 @@
 <div class="container">
-    <form>
-        <h1 class="title">Sign Up Page</h1>
-        <div class="input-area">
-            <input type="text" placeholder="Digite seu nome aqui">
+  <div class="pagination">
+    <div class="page">{{ page }}</div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 class="title">{{ "signup_page" | translate }}</h1>
+    <div class="error-msg" *ngIf="error !== ''">{{ error }}</div>
+    <div
+      class="input-area"
+      [ngClass]="{
+        'first-group': page !== 1
+      }"
+    >
+      <input
+        type="text"
+        placeholder="Digite seu nome aqui"
+        formControlName="name"
+        [ngClass]="this.helperService.applyCssError(form, 'name')"
+      />
+      <app-error
+        [showError]="this.helperService.verifyValidTouched(form, 'name')"
+        errorMsg="Preencha corretamente o nome"
+      ></app-error>
+    </div>
+    <div
+      class="input-area"
+      [ngClass]="{
+        'first-group': page !== 1
+      }"
+    >
+      <input
+        type="text"
+        placeholder="{{ 'your_email' | translate }}"
+        formControlName="email"
+        [ngClass]="this.helperService.applyCssError(form, 'email')"
+      />
+      <app-error
+        [showError]="this.helperService.verifyValidTouched(form, 'email')"
+        errorMsg="Preencha corretamente o email"
+      ></app-error>
+    </div>
+
+    <div
+      class="input-area"
+      [ngClass]="{
+        'first-group': page !== 1
+      }"
+    >
+      <input
+        type="password"
+        placeholder="{{ 'your_password' | translate }}"
+        formControlName="password"
+        [ngClass]="this.helperService.applyCssError(form, 'password')"
+      />
+      <app-error
+      [showError]="this.helperService.verifyValidTouched(form, 'password')"
+      errorMsg="Preencha corretamente a senha"
+    ></app-error>
+    </div>
+    <div
+      class="input-area"
+      [ngClass]="{
+        'first-group': page !== 1
+      }"
+    >
+      <input
+        type="password"
+        placeholder="confirm your password here"
+        formControlName="confirmPassword"
+      />
+    </div>
+    <div
+      class="gender"
+      [ngClass]="{
+        'second-group': page !== 2
+      }"
+    >
+      Sexo:
+      <div class="gender-inputs">
+        <input
+          type="radio"
+          name="gender"
+          value="1"
+          formControlName="gender"
+        />
+        <span>Masculino</span>
+        <input
+          type="radio"
+          name="gender"
+          value="0"
+          formControlName="gender"
+        />
+        <span>Feminino</span>
+      </div>
+    </div>
+    <div
+      class="input-area"
+      [ngClass]="{
+        'second-group': page !== 2
+      }"
+    >
+      Selecione uma função:
+      <select formControlName="roles">
+        <option value="0">Administrador</option>
+        <option value="1">Usuário</option>
+        <option value="2">CRM</option>
+      </select>
+    </div>
+    <div
+      class="checkbox-area"
+      [ngClass]="{
+        'second-group': page !== 2
+      }"
+    >
+      <p>Selecione uma ou várias permissões:</p>
+      <div class="checkbox">
+        <div class="wrapper"><input type="checkbox" formControlName="createPermission" /> <span>Criar</span></div>
+        <div class="wrapper"><input type="checkbox" formControlName="editPermission" /> <span>Editar</span></div>
+        <div class="wrapper">
+          <input type="checkbox" formControlName="readPermission" /> <span>Consultar</span>
         </div>
-        <div class="input-area">
-            <input type="text" placeholder="{{ 'your_email' | translate }}">
+        <div class="wrapper">
+          <input type="checkbox" formControlName="updatePermission" /> <span>Atualizar</span>
         </div>
-        <div class="input-area">
-            <input type="password" placeholder="{{ 'your_password' | translate }}">
-        </div>
-        <div class="input-area">
-            <input type="password" placeholder="confirm your password here">
-        </div>
-        <div class="gender">
-          Sexo:
-         <div class="gender-inputs">
-            <input type="radio"> Masculino
-            <input type="radio"> Feminino
-         </div>
-        </div>
-        <div class="input-area">
-            Selecione uma função:
-            <select style="width: 100%;">
-                <option>Administrador</option>
-                <option>Usuário</option>
-                <option>CRM</option>
-            </select>
-        </div>
-        <div class="input-area">
-            Selecione uma ou várias permissões:
-           <input type="checkbox"> criar
-           <input type="checkbox"> editar
-           <input type="checkbox"> ler
-           <input type="checkbox"> atualizar
-        </div>
-        <div class="input-area">
-            <button>cadastrar</button>
-        </div>
-    </form>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="previous" (click)="handlePrevClick()">
+        <button
+          [ngClass]="{
+            disabled: page - 1 < 1
+          }"
+        >
+          Anterior
+        </button>
+      </div>
+      <div class="next" (click)="handleNextClick()">
+        <button
+          [ngClass]="{
+            disabled: page + 1 > pages
+          }"
+        >
+          Próximo
+        </button>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <button>{{ "signup" | translate }}</button>
+    </div>
+  </form>
 </div>

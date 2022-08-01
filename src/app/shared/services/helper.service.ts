@@ -8,7 +8,7 @@ export class HelperService {
 
   constructor() { }
 
-  verifyValidTouched(form: FormGroup,field: string) {
+  verifyValidTouched(form: FormGroup, field: string) {
     return (!form.get(field)?.valid &&
       (form.get(field)?.touched ||
         form.get(field)?.dirty)) as boolean;

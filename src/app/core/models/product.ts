@@ -1,7 +1,7 @@
 export type Product = {
     id: number,
     id_cat: number,
-    image: string,
+    image: any[],
     ingredients: string,
     name: string,
     points: number,

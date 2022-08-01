@@ -14,7 +14,7 @@
       </app-category>
       <app-category
         (clickedCategory)="getClickedCategory($event)"
-        *ngFor="let category of categories.result"
+        *ngFor="let category of categories.data"
         [categoryInfo]="category"
         [activeCategory]="activeCategory"
       ></app-category>
@@ -23,7 +23,7 @@
   <div class="products-area">
     <app-product-item
       class="product"
-      *ngFor="let product of products.result?.data"
+      *ngFor="let product of products.data"
       [product]="product"
       (clickedProduct)="getClickedProduct(product)"
       #productItem
@@ -41,6 +41,7 @@
     </div>
   </div>
 
+  <!-- <div *ngIf="this.errorPopUp">ola mundo</div> -->
 </div>
 <app-modal
   [product]="product"

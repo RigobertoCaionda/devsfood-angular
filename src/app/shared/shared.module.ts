@@ -4,6 +4,7 @@ import { NotfoundComponent } from './layouts/notfound/notfound.component';
 import { ModalComponent } from './layouts/modal/modal.component';
 import { NumberFormatterPipe } from './pipes/number-formatter.pipe';
 import { ErrorComponent } from './layouts/error/error.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -15,7 +16,8 @@ import { ErrorComponent } from './layouts/error/error.component';
     ErrorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   exports: [
     ModalComponent,

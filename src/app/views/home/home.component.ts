@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { debounceTime } from 'rxjs';
+//import { ApiService } from 'src/app/core/services/api.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
@@ -17,13 +17,16 @@ export class HomeComponent implements OnInit {
   activeCategory = 0;
   searchText = '';
   modalStatus = false;
-  
+  take = 4;
+  skip = 0;
+  //errorPopUp = false;
   constructor(
     private productService: ProductService,
-    private translate: TranslateService
+    //public apiService: ApiService
   ) {}
 
   ngOnInit(): void {
+    //this.errorPopUp = this.apiService.showErrorPopUp;
     this.productService
       .getSearchValue()
       .pipe(debounceTime(2000))
@@ -33,10 +36,12 @@ export class HomeComponent implements OnInit {
           this.getProducts();
         },
         error: (error) => console.log(error),
-      }); // Sera nottificado sempre que houver uma alteracao no search do servico
+      }); // Sera notificado sempre que houver uma alteracao no search do servico
 
     this.productService.getCategories().subscribe({
-      next: (categories) => (this.categories = categories),
+      next: (categories) => {
+        this.categories = categories;
+      },
       error: (error) => console.log(error), // Fazer aparecer esse erro em forma de modal
     });
     this.getProducts();
@@ -44,8 +49,13 @@ export class HomeComponent implements OnInit {
 
   handlePageClick(index: number) {
     this.activePage = index + 1;
+    if(this.activePage == 1) {
+      this.skip = 0;
+    }else {
+      this.skip = (this.take * this.activePage) - this.take; // Entender esse cálculo matemático
+    }
     this.productService
-      .getProducts(this.activeCategory, this.activePage, this.searchText)
+      .getProducts(this.activeCategory, this.searchText, this.take, this.skip)
       .subscribe({
         next: (products) => (this.products = products),
         error: (error) => console.log(error),
@@ -69,11 +79,11 @@ export class HomeComponent implements OnInit {
 
   getProducts() {
     return this.productService
-      .getProducts(this.activeCategory, this.activePage, this.searchText)
+      .getProducts(this.activeCategory, this.searchText, this.take, this.skip)
       .subscribe({
         next: (products) => {
           this.products = products;
-          this.totalPages = Array(products.result.pages).fill(0);
+          this.totalPages = Array(products.total).fill(0);
         },
         error: (error) => console.log(error),
       });

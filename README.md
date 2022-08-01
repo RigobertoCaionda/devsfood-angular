@@ -26,9 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-Criar interceptor na hora do token e um para enviar uma certa mensagem quando deu sucesso ou deu errado, criar signin, signup, responsividade, trabalhar nos outros 2 menus.
-Enviar o role a partir do backend.
-Vai ter permissions (editar, consultar, criar, atualizar) além do role, para que nem todos do CRM por exemplo possam apagar, alguns só vão consultar.
-Mudar o titulo da página quando acessar algo, opcao de mudar a senha ao entrar pela primeira vez no sistema (Posso guardar essa informação na bd)
-Tirar os required do login e colocar no signup
-Analisar o processo para fazer a aplicação de classe de erro.
+Todo:
+# responsividade, trabalhar nos outros 2 menus.
+# opcao de mudar a senha ao entrar pela primeira vez no sistema (Posso guardar essa informação na bd)
+# Mensagem de erro num pop up

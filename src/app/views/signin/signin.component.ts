@@ -1,6 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HelperService } from 'src/app/shared/services/helper.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -9,12 +10,11 @@ import { HelperService } from 'src/app/shared/services/helper.service';
 })
 export class SigninComponent implements OnInit {
   form!: FormGroup;
-  constructor(
-    private formBuilder: FormBuilder,
-    public helperService: HelperService
-  ) {}
+  error = '';
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
 
   ngOnInit(): void {
+    document.title = 'Login page';
     this.form = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null],
@@ -23,13 +23,13 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.form.valid) {
-      Object.keys(this.form.controls).forEach((field) => {
-        const control = this.form.get(field);
-        control?.markAsDirty();
-      });
-      return;
-    }
-    console.log('Clicou');
+    this.error = '';
+   this.authService.signIn(this.form.value).subscribe({
+    next: (json) => {
+      this.authService.doLogin(json.token);
+      window.location.href = '/';
+    },
+    error: (error: HttpErrorResponse) => this.error = error.error.message
+   });
   }
 }

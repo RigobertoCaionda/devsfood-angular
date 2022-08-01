@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    document.title = 'Home';
     this.productService.getCartValue().subscribe({
       next: (res) => (this.cart = res),
     });
@@ -44,10 +45,10 @@ export class AppComponent implements OnInit {
   }
 
   handleSearchChange(event: string) {
-    this.productService.setSearchValue(event); // Mudando o valor para toda aplicacao sempre que houver alteracao
+    this.productService.setSearchValue(event);
   }
 
-  roleVerification(expectedRoles: string[]) {
+  roleVerification(expectedRoles: string[]) { // Deve ir num servico pq pode ser usado noutro lugar além daqui
     let index = expectedRoles.findIndex(item => item == this.userRole);
     if(index > -1) {
       return true;
