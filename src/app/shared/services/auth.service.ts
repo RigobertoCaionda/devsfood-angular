@@ -38,9 +38,12 @@ export class AuthService {
   signUp(user: User): Observable<any> {
     return this.apiService.post('/user', user);
   }
-  // Trocar isso, deve vir do backend
+  
   getRoles() {
-    const roles = ['Admin']; // Trocar isso, tem que vir do service. Se o service enviar user e o expectedRole é Admin, vai falhar. O segredo esta aqui
-    return roles;
+    if(!this.getToken()) {
+      return [''];
+    }
+    let role = JSON.parse(atob(this.getToken().split('.')[1]));
+    return  [role.role];
   }
 }

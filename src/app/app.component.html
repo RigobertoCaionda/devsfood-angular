@@ -5,15 +5,14 @@
       [routerLinkActiveOptions]="{ exact: true }"><img src="../assets/store.png"></a>
     </div>
     <div class="menu-item" tooltip="{{ 'orders' | translate }}" placement="right" [showDelay]="200" 
-    *ngIf="this.roleVerification(['User', 'Admin'])">
+    *ngIf="this.roleVerification(['User', 'administrador'])">
       <a routerLink="/orders" routerLinkActive="active"><img src="../assets/order.png"></a>
     </div>
     <div class="menu-item" tooltip="{{ 'profile' | translate }}" placement="right" [showDelay]="200" 
-    *ngIf="this.roleVerification(['User', 'Admin'])">
+    *ngIf="this.roleVerification(['User', 'administrador'])">
       <a routerLink="/profile" routerLinkActive="active"><img src="../assets/profile.png"></a>
     </div>
-    <div class="menu-item" tooltip="{{ 'admin' | translate }}" placement="right" [showDelay]="200"
-    *ngIf="this.roleVerification(['Admin'])">
+    <div class="menu-item" tooltip="{{ 'admin' | translate }}" placement="right" [showDelay]="200">
       <a routerLink="/admin/" routerLinkActive="active"><img src="../assets/adm.png"></a>
     </div>
   </div>

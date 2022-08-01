@@ -100,10 +100,8 @@
       }"
     >
       Selecione uma função:
-      <select formControlName="roles">
-        <option value="0">Administrador</option>
-        <option value="1">Usuário</option>
-        <option value="2">CRM</option>
+      <select formControlName="roleId">
+        <option [value]="role.id" *ngFor="let role of roles">{{ role.name }}</option>
       </select>
     </div>
     <div

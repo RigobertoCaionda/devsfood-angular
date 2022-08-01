@@ -15,7 +15,7 @@ const routes: Routes = [
     component: TesteComponent,
     canActivate: [AuthGuard, HasRoleGuard],
     data: {
-      expectedRoles: ['Admin', 'User'],
+      expectedRoles: ['administrador', 'User'],
     },
   },
   {
@@ -23,7 +23,7 @@ const routes: Routes = [
     component: TesteComponent,
     canActivate: [AuthGuard, HasRoleGuard],
     data: {
-      expectedRoles: ['Admin', 'User'],
+      expectedRoles: ['administrador', 'User'],
     },
   },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
     canActivate: [AuthGuard, HasRoleGuard],
     canLoad: [AuthGuard],
     data: {
-      expectedRoles: ['Admin']
+      expectedRoles: ['administrador']
     }
   },
   { path: '**', component: NotfoundComponent },
