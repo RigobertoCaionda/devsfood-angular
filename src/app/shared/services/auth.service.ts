@@ -5,11 +5,13 @@ import { User } from 'src/app/core/models/user';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private cookieService: CookieService, private apiService: ApiService) { }
+  constructor(
+    private cookieService: CookieService,
+    private apiService: ApiService
+  ) {}
 
   isLogged() {
     if (this.cookieService.get('token')) {
@@ -38,12 +40,9 @@ export class AuthService {
   signUp(user: User): Observable<any> {
     return this.apiService.post('/user', user);
   }
-  
+
   getRoles() {
-    if(!this.getToken()) {
-      return [''];
-    }
     let role = JSON.parse(atob(this.getToken().split('.')[1]));
-    return  [role.role];
+    return [role.role];
   }
 }
