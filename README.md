@@ -27,6 +27,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 Todo:
-# responsividade, trabalhar nos outros 2 menus.
-# opcao de mudar a senha ao entrar pela primeira vez no sistema (Posso guardar essa informação na bd)
-# Mensagem de erro num pop up
+## Guardar os produtos no carrinho no localStorage dando a possibilidade de encontra-los depois.
+## Permitir pesquisa na barra de pesquisa
+## Fazer as outras partes do crud (Apagar, deletar)
