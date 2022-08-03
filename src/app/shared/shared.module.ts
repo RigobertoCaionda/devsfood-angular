@@ -5,6 +5,8 @@ import { ModalComponent } from './layouts/modal/modal.component';
 import { NumberFormatterPipe } from './pipes/number-formatter.pipe';
 import { ErrorComponent } from './layouts/error/error.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { CreatePproductFormComponent } from './layouts/create-pproduct-form/create-pproduct-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,11 +15,13 @@ import { TranslateModule } from '@ngx-translate/core';
     NotfoundComponent,
     ModalComponent,
     NumberFormatterPipe,
-    ErrorComponent
+    ErrorComponent,
+    CreatePproductFormComponent
   ],
   imports: [
     CommonModule,
-    TranslateModule
+    TranslateModule,
+    ReactiveFormsModule
   ],
   exports: [
     ModalComponent,

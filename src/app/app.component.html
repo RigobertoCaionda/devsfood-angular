@@ -1,15 +1,15 @@
 <div class="container">
   <div class="menu">
     <div class="menu-item" tooltip="{{ 'store' | translate }}" placement="right" [showDelay]="200">
-      <a routerLink="/" routerLinkActive="active" 
+      <a routerLink="/home" routerLinkActive="active" 
       [routerLinkActiveOptions]="{ exact: true }"><img src="../assets/store.png"></a>
     </div>
     <div class="menu-item" tooltip="{{ 'orders' | translate }}" placement="right" [showDelay]="200" 
-    *ngIf="this.roleVerification(['User', 'administrador'])">
+    *ngIf="this.roleVerification(['usuario', 'administrador'])">
       <a routerLink="/orders" routerLinkActive="active"><img src="../assets/order.png"></a>
     </div>
     <div class="menu-item" tooltip="{{ 'profile' | translate }}" placement="right" [showDelay]="200" 
-    *ngIf="this.roleVerification(['User', 'administrador'])">
+    *ngIf="this.roleVerification(['usuario', 'administrador'])">
       <a routerLink="/profile" routerLinkActive="active"><img src="../assets/profile.png"></a>
     </div>
    

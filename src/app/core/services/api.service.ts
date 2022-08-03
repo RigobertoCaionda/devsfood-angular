@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -8,10 +8,9 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   public baseURL = environment.baseURL;
-  //showErrorPopUp = false;
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json', // Content type é o conteúdo que vc envia e Accept é o conteúdo que vc aceita/recebe
       'Access-Control-Allow-Origin': '*',
     }),
   };
@@ -35,6 +34,12 @@ export class ApiService {
       JSON.stringify(body),
       this.httpOptions
     );
+  }
+
+  post_with_upload(path: string, body = {}): Observable<any> {
+    // Neste post, não passamos nenhum cabecalho ou se quisermos passar, devemos passar o multipart/formdata, em vez de passar o application/json
+    // Neste post não devemos fazer o stringify do body já que não estamos passando um json, fazemos stringify caso estejamos passando um json.
+    return this.http.post(this.baseURL + path, body);
   }
 
   delete(path: string): Observable<any> {

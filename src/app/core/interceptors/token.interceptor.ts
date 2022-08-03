@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TesteInterceptor implements HttpInterceptor {
+export class TokenInterceptor implements HttpInterceptor {
   token = '';
   constructor(private authService: AuthService) {}
 

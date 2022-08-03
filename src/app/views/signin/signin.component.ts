@@ -11,7 +11,10 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class SigninComponent implements OnInit {
   form!: FormGroup;
   error = '';
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     document.title = 'Login page';
@@ -24,12 +27,15 @@ export class SigninComponent implements OnInit {
 
   onSubmit() {
     this.error = '';
-   this.authService.signIn(this.form.value).subscribe({
-    next: (json) => {
-      this.authService.doLogin(json.token);
-      window.location.href = '/';
-    },
-    error: (error: HttpErrorResponse) => this.error = error.error.message
-   });
+    this.authService.signIn(this.form.value).subscribe({
+      next: (json) => {
+        this.authService.doLogin(
+          json.token,
+          this.form.get('rememberPassword')?.value
+        );
+        window.location.href = '/home';
+      },
+      error: (error: HttpErrorResponse) => (this.error = error.error.message),
+    });
   }
 }

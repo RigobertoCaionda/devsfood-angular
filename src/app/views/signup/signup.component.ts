@@ -80,7 +80,7 @@ export class SignupComponent implements OnInit {
    this.authService.signUp(this.form.value).subscribe({
     next: (json) => {
       this.authService.doLogin(json.token);
-      window.location.href = '/';
+      window.location.href = '/home';
     },
     error: (error: HttpErrorResponse) => this.error = error.error.message
    });

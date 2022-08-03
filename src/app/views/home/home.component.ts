@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { debounceTime } from 'rxjs';
 import { Product } from 'src/app/core/models/product';
-//import { ApiService } from 'src/app/core/services/api.service';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
@@ -20,14 +20,12 @@ export class HomeComponent implements OnInit {
   modalStatus = false;
   take = 4;
   skip = 0;
-  //errorPopUp = false;
   constructor(
     private productService: ProductService,
-    //public apiService: ApiService
+    private cookiesService: CookieService
   ) {}
 
   ngOnInit(): void {
-    //this.errorPopUp = this.apiService.showErrorPopUp;
     this.productService
       .getSearchValue()
       .pipe(debounceTime(2000))

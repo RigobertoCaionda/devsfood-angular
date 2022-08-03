@@ -6,24 +6,26 @@ import { NotfoundComponent } from './shared/layouts/notfound/notfound.component'
 import { SigninComponent } from './views/signin/signin.component';
 import { TesteComponent } from './views/teste/teste.component';
 import { HasRoleGuard } from './core/guards/has-role.guard';
+import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'signin', component: SigninComponent },
   {
     path: 'orders',
     component: TesteComponent,
     canActivate: [AuthGuard, HasRoleGuard],
     data: {
-      expectedRoles: ['administrador', 'User'],
+      expectedRoles: ['administrador', 'usuario'],
     },
   },
   {
     path: 'profile',
-    component: TesteComponent,
+    component: ProfileComponent,
     canActivate: [AuthGuard, HasRoleGuard],
     data: {
-      expectedRoles: ['administrador', 'User'],
+      expectedRoles: ['administrador', 'usuario'],
     },
   },
   {

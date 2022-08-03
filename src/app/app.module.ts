@@ -19,7 +19,8 @@ import { CartProductComponent } from './views/cart-product/cart-product.componen
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { Teste2Component } from './views/teste2/teste2.component';
-import { TesteInterceptor } from './core/interceptors/token.interceptor';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { ProfileComponent } from './views/profile/profile.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CategoryComponent,
     ProductItemComponent,
     CartProductComponent,
-    Teste2Component
+    Teste2Component,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TesteInterceptor,
+      useClass: TokenInterceptor,
       multi: true
     }
   ],

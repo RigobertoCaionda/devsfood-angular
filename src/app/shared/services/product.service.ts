@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -9,15 +10,20 @@ export class ProductService {
   search = new BehaviorSubject<string>('');
   cart = new BehaviorSubject<any[]>([]);
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private http: HttpClient) {}
 
   getCategories(): Observable<any> {
     return this.apiService.get('/categories');
   }
 
-  getProducts(category: number, search: string, take: number, skip: number): Observable<any> {
+  getProducts(
+    category: number,
+    search: string,
+    take: number,
+    skip: number
+  ): Observable<any> {
     let fields: any = {};
-    if (category !== 0) { // Talvez isso saia.
+    if (category !== 0) {
       fields.category = category;
     }
     if (take) {
@@ -31,6 +37,11 @@ export class ProductService {
     }
     let queryString = new URLSearchParams(fields).toString();
     return this.apiService.get(`/product?${queryString}`);
+  }
+
+  createProducts(fData: FormData): Observable<any> {
+   // Um form data é enviado como string ou blob
+    return this.apiService.post_with_upload('/product', fData);
   }
 
   setCartValue(product: any) {

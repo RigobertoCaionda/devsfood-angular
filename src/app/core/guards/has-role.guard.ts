@@ -16,7 +16,9 @@ export class HasRoleGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean {
-    this.router.navigate(['/signin']);
+    if(!this.isAuthorized(route)) {
+      this.router.navigate(['/signin']);
+    }
     return this.isAuthorized(route);
   }
 
@@ -25,7 +27,7 @@ export class HasRoleGuard implements CanActivate {
     const expectedRoles = route.data['expectedRoles']; // Aqui tem uma lista de array que passamos na rota
     const roleMatches = roles.findIndex(
       (role) => expectedRoles.indexOf(role) !== -1
-    ); // Pega nas roles que vem do service e verifica se existe nas rotas esperadas
+    );
     return roleMatches < 0 ? false : true;
   }
 }
