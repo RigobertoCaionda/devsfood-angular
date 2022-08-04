@@ -1,9 +1,7 @@
 .product-item {
     background-color: #fff;
-    /*margin: 0 10px 10px 0; Ja dei margem, mas não funciona a margem direita, so a de baixo*/
     padding: 10px;
     border-radius: 5px;
-    /*width: 100%; Precisei tirar pq tive que colocar no home component*/
     cursor: pointer;
 }
 .product-item-img-area {

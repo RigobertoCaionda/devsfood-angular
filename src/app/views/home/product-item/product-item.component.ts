@@ -4,15 +4,14 @@ import { Product } from 'src/app/core/models/product';
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css']
+  styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent implements OnInit {
   @Output() clickedProduct = new EventEmitter();
   @Input() product: Product = {} as Product;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleProductItemClick(product: any) {
     this.clickedProduct.emit({ product });

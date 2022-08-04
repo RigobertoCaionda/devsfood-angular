@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreatePproductFormComponent } from '../shared/layouts/create-pproduct-form/create-pproduct-form.component';
 import { SignupComponent } from '../views/signup/signup.component';
-import { Teste2Component } from '../views/teste2/teste2.component';
+import { TesteComponent } from '../views/teste/teste.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: Teste2Component
+    component: TesteComponent
   },
   {
     path: 'signup',

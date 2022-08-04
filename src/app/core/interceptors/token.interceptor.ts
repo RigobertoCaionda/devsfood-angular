@@ -16,7 +16,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Aqui vc faz todo processo que vai interceptar a requisicao. Declarar esse interceptor nos providers do app.module
+    // Aqui vc faz todo processo que vai interceptar a requisicao. O interceptor precisa ser declarado nos providers do app.module
     this.token = this.authService.getToken();
     if(this.token) {
       const tokenizedReq = request.clone({

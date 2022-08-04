@@ -32,8 +32,8 @@ export class UserUpdateFormComponent implements OnInit {
       roleId: [null],
     });
     this.rolesService.getRoles().subscribe({
-      next: (json) => this.roles = json.data,
-      error: error => console.log(error)
+      next: (json) => (this.roles = json.data),
+      error: (error) => console.log(error),
     });
     this.userService.me().subscribe({
       next: (json: any) => {
@@ -43,7 +43,7 @@ export class UserUpdateFormComponent implements OnInit {
           roleId: this.me.roleId,
         });
       },
-      error: error => console.log(error)
+      error: (error) => console.log(error),
     });
   }
   get f() {
@@ -52,7 +52,7 @@ export class UserUpdateFormComponent implements OnInit {
 
   onSubmit() {
     this.error = '';
-    if(!this.form.valid) {
+    if (!this.form.valid) {
       Object.keys(this.f).forEach((field) => {
         const control = this.form.get(field);
         control?.markAsDirty();
@@ -61,25 +61,25 @@ export class UserUpdateFormComponent implements OnInit {
     }
 
     this.form.patchValue({
-      roleId: parseInt(this.form.get('roleId')?.value)
+      roleId: parseInt(this.form.get('roleId')?.value),
     });
     let updateObj: any = {};
-    if(this.form.get('name')?.value) {
+    if (this.form.get('name')?.value) {
       updateObj.name = this.form.get('name')?.value;
     }
-    if(this.form.get('email')?.value) {
+    if (this.form.get('email')?.value) {
       updateObj.email = this.form.get('email')?.value;
     }
-    if(this.form.get('password')?.value) {
+    if (this.form.get('password')?.value) {
       updateObj.password = this.form.get('password')?.value;
     }
-    if(this.form.get('roleId')?.value) {
+    if (this.form.get('roleId')?.value) {
       updateObj.roleId = this.form.get('roleId')?.value;
     }
-    
+
     this.userService.update(this.me.id, updateObj).subscribe({
       next: (json) => alert('Usuário atualizado com sucess'),
-      error: (error: HttpErrorResponse) => this.error = error.error.message
+      error: (error: HttpErrorResponse) => (this.error = error.error.message),
     });
   }
 }

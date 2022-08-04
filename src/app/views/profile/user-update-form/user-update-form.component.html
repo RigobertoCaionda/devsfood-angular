@@ -14,17 +14,17 @@
     ></app-error>
 
     <input
-        type="text"
-        placeholder="{{ 'your_email' | translate }}"
-        formControlName="email"
-        [ngClass]="this.helperService.applyCssError(form, 'email')"
-      />
-      <app-error
+      type="text"
+      placeholder="{{ 'your_email' | translate }}"
+      formControlName="email"
+      [ngClass]="this.helperService.applyCssError(form, 'email')"
+    />
+    <app-error
       [showError]="this.helperService.verifyValidTouched(form, 'email')"
       errorMsg="Preencha corretamente o email"
     ></app-error>
 
-      <input
+    <input
       type="password"
       placeholder="{{ 'your_password' | translate }}"
       formControlName="password"
@@ -36,9 +36,11 @@
     ></app-error>
 
     Selecione uma função:
-      <select formControlName="roleId">
-        <option [value]="role.id" *ngFor="let role of roles">{{ role.name }}</option>
-      </select>
-      <button>Atualizar</button>
+    <select formControlName="roleId">
+      <option [value]="role.id" *ngFor="let role of roles">
+        {{ role.name }}
+      </option>
+    </select>
+    <button>Atualizar</button>
   </form>
 </div>

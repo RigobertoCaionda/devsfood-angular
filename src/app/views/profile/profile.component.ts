@@ -20,15 +20,15 @@ export class ProfileComponent implements OnInit {
     this.userService.me().subscribe({
       next: (json: any) => {
         this.me = json.data;
-        this.name = json.data.name
+        this.name = json.data.name;
       },
-      error: error => console.log(error)
+      error: (error) => console.log(error),
     });
   }
 
   deleteUser() {
-    this.userService.delete(this.me.id).subscribe({ // Se vc não subscrever, nada acontece
-      next: json => this.authService.doLogout()
+    this.userService.delete(this.me.id).subscribe({
+      next: (json) => this.authService.doLogout(),
     });
   }
 }

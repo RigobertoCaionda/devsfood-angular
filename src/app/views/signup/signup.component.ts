@@ -33,8 +33,8 @@ export class SignupComponent implements OnInit {
       roleId: [null, [Validators.required]],
     });
     this.rolesService.getRoles().subscribe({
-      next: json => this.roles = json.data,
-      error: error => console.log(error)
+      next: (json) => (this.roles = json.data),
+      error: (error) => console.log(error),
     });
   }
 
@@ -70,14 +70,14 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.form.patchValue({
-      roleId: parseInt(this.form.get('roleId')?.value)
+      roleId: parseInt(this.form.get('roleId')?.value),
     });
-   this.authService.signUp(this.form.value).subscribe({
-    next: (json) => {
-      this.authService.doLogin(json.token);
-      window.location.href = '/home';
-    },
-    error: (error: HttpErrorResponse) => this.error = error.error.message
-   });
+    this.authService.signUp(this.form.value).subscribe({
+      next: (json) => {
+        this.authService.doLogin(json.token);
+        window.location.href = '/home';
+      },
+      error: (error: HttpErrorResponse) => (this.error = error.error.message),
+    });
   }
 }

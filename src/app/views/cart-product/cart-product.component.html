@@ -1,16 +1,20 @@
 <div>
-    <div class="cart-product">
-      <div class="img-area"><img [src]="product.image[0]?.url"></div>
-      <div class="info-area">
-        <div class="desc-area">
-          <div class="title">{{ product.name }}</div>
-          <div class="price">R$ {{ product.price }}</div>
+  <div class="cart-product">
+    <div class="img-area"><img [src]="product.image[0]?.url" /></div>
+    <div class="info-area">
+      <div class="desc-area">
+        <div class="title">{{ product.name }}</div>
+        <div class="price">R$ {{ product.price }}</div>
+      </div>
+      <div class="count-area">
+        <div class="minus-btn" (click)="handleMinusClick()">
+          <img src="../assets/minus.png" />
         </div>
-        <div class="count-area">
-          <div class="minus-btn" (click)="handleMinusClick()"><img src="../assets/minus.png"></div>
-          <div class="quantity">{{ product.qt }}</div>
-          <div class="plus-btn" (click)="handlePlusClick()"><img src="../assets/plus.png"></div>
+        <div class="quantity">{{ product.qt }}</div>
+        <div class="plus-btn" (click)="handlePlusClick()">
+          <img src="../assets/plus.png" />
         </div>
       </div>
     </div>
   </div>
+</div>

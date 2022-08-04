@@ -53,9 +53,9 @@
         [ngClass]="this.helperService.applyCssError(form, 'password')"
       />
       <app-error
-      [showError]="this.helperService.verifyValidTouched(form, 'password')"
-      errorMsg="Preencha corretamente a senha"
-    ></app-error>
+        [showError]="this.helperService.verifyValidTouched(form, 'password')"
+        errorMsg="Preencha corretamente a senha"
+      ></app-error>
     </div>
     <div
       class="input-area"
@@ -78,7 +78,9 @@
     >
       Selecione uma função:
       <select formControlName="roleId">
-        <option [value]="role.id" *ngFor="let role of roles">{{ role.name }}</option>
+        <option [value]="role.id" *ngFor="let role of roles">
+          {{ role.name }}
+        </option>
       </select>
     </div>
 

@@ -27,7 +27,7 @@ export class CreatePproductFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: [null, [Validators.required]],
       price: [null, [Validators.required]],
-      categoryId: [null, [Validators.required]]
+      categoryId: [null, [Validators.required]],
     });
 
     this.productService.getCategories().subscribe({
@@ -42,12 +42,12 @@ export class CreatePproductFormComponent implements OnInit {
     return this.form.controls;
   }
 
-  inputFileChange (e: any) {
-    if(e.target.files) {
-     this.fileInput = e.target.files;
+  inputFileChange(e: any) {
+    if (e.target.files) {
+      this.fileInput = e.target.files;
     }
-   }
- 
+  }
+
   onSubmit() {
     this.error = '';
     if (!this.form.valid) {
@@ -57,7 +57,7 @@ export class CreatePproductFormComponent implements OnInit {
       });
       return;
     }
-  
+
     const fData = new FormData();
     fData.append('name', this.form.get('name')?.value);
     fData.append('price', this.form.get('price')?.value);
@@ -67,14 +67,14 @@ export class CreatePproductFormComponent implements OnInit {
         fData.append('images', this.fileInput[i]);
       }
     }
-    
-     this.productService.createProducts(fData).subscribe({
+
+    this.productService.createProducts(fData).subscribe({
       next: (json) => {
-        if(json.data.id) {
+        if (json.data.id) {
           this.router.navigateByUrl('/home');
         }
       },
-      error: (error: HttpErrorResponse) => this.error = error.error.message
-     });
+      error: (error: HttpErrorResponse) => (this.error = error.error.message),
+    });
   }
 }

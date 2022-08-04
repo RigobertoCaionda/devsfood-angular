@@ -4,10 +4,10 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './views/home/home.component';
 import { NotfoundComponent } from './shared/layouts/notfound/notfound.component';
 import { SigninComponent } from './views/signin/signin.component';
-import { TesteComponent } from './views/teste/teste.component';
 import { HasRoleGuard } from './core/guards/has-role.guard';
 import { ProfileComponent } from './views/profile/profile.component';
 import { UserUpdateFormComponent } from './views/profile/user-update-form/user-update-form.component';
+import { OrdersComponent } from './views/orders/orders.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   {
     path: 'orders',
-    component: TesteComponent,
+    component: OrdersComponent,
     canActivate: [AuthGuard, HasRoleGuard],
     data: {
       expectedRoles: ['administrador', 'usuario'],

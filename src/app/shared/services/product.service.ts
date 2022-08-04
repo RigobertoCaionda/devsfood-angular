@@ -8,7 +8,9 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class ProductService {
   search = new BehaviorSubject<string>('');
-  cart = new BehaviorSubject<any[]>(JSON.parse(localStorage.getItem('cart') as string) || []);
+  cart = new BehaviorSubject<any[]>(
+    JSON.parse(localStorage.getItem('cart') as string) || []
+  );
 
   constructor(private apiService: ApiService) {}
 
@@ -40,7 +42,6 @@ export class ProductService {
   }
 
   createProducts(fData: FormData): Observable<any> {
-   // Um form data é enviado como string ou blob
     return this.apiService.post_with_upload('/product', fData);
   }
 

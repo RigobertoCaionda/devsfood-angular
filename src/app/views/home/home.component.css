@@ -16,7 +16,7 @@
 }
 .product {
     width: 31%;
-    margin: 0 15px 15px 0; /*Precisei adicionar isso para funcionar para dar margem*/
+    margin: 0 15px 15px 0;
 }
 .pagination-area {
     display: flex;

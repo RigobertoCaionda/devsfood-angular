@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { debounceTime } from 'rxjs';
 import { Product } from 'src/app/core/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -20,10 +19,7 @@ export class HomeComponent implements OnInit {
   modalStatus = false;
   take = 4;
   skip = 0;
-  constructor(
-    private productService: ProductService,
-    private cookiesService: CookieService
-  ) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService
@@ -41,17 +37,17 @@ export class HomeComponent implements OnInit {
       next: (categories) => {
         this.categories = categories;
       },
-      error: (error) => console.log(error), // Fazer aparecer esse erro em forma de modal
+      error: (error) => console.log(error),
     });
     this.getProducts();
   }
 
   handlePageClick(index: number) {
     this.activePage = index + 1;
-    if(this.activePage == 1) {
+    if (this.activePage == 1) {
       this.skip = 0;
-    }else {
-      this.skip = (this.take * this.activePage) - this.take; // Entender esse cálculo matemático
+    } else {
+      this.skip = this.take * this.activePage - this.take; 
     }
     this.productService
       .getProducts(this.activeCategory, this.searchText, this.take, this.skip)
