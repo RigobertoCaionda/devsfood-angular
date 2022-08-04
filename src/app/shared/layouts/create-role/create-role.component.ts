@@ -49,7 +49,6 @@ export class CreateRoleComponent implements OnInit {
     fData.append('file', this.fileInput);
     this.categoryService.create(fData).subscribe({
       next: (json) => {
-        console.log(json)
         if (json.id) {
           this.router.navigateByUrl('/home');
         }
