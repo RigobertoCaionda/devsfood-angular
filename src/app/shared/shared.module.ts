@@ -7,6 +7,7 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CreatePproductFormComponent } from './layouts/create-pproduct-form/create-pproduct-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateRoleComponent } from './layouts/create-role/create-role.component';
 
 
 
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalComponent,
     NumberFormatterPipe,
     ErrorComponent,
-    CreatePproductFormComponent
+    CreatePproductFormComponent,
+    CreateRoleComponent
   ],
   imports: [
     CommonModule,

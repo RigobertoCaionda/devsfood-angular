@@ -1,0 +1,25 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h1 class="title">Página de cadastro de categoria</h1>
+        <div class="error-msg" *ngIf="error !== ''">{{ error }}</div>
+        
+        <input
+        type="text"
+        placeholder="Digite seu nome aqui"
+        formControlName="name"
+        [ngClass]="this.helperService.applyCssError(form, 'name')"
+      />
+      <app-error
+        [showError]="this.helperService.verifyValidTouched(form, 'name')"
+        errorMsg="Preencha corretamente o nome"
+      ></app-error>
+
+      <input
+      type="file"
+      multiple
+      placeholder="Selecione uma foto"
+      (change)="inputFileChange($event)"
+    />
+      <button>Salvar</button>
+    </form>
+</div>
