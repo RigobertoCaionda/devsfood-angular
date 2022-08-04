@@ -1,6 +1,6 @@
 <div>
     <div class="cart-product">
-      <div class="img-area"><img [src]="product.image"></div>
+      <div class="img-area"><img [src]="product.image[0]?.url"></div>
       <div class="info-area">
         <div class="desc-area">
           <div class="title">{{ product.name }}</div>

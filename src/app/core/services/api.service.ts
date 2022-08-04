@@ -28,6 +28,14 @@ export class ApiService {
     );
   }
 
+  patch(path: string, body: Object = {}): Observable<any> {
+    return this.http.patch(
+      this.baseURL + path,
+      JSON.stringify(body),
+      this.httpOptions
+    );
+  }
+
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
       this.baseURL + path,

@@ -24,7 +24,7 @@ export class HasRoleGuard implements CanActivate {
 
   private isAuthorized(route: ActivatedRouteSnapshot): boolean {
     const roles = this.authService.getRoles();
-    const expectedRoles = route.data['expectedRoles']; // Aqui tem uma lista de array que passamos na rota
+    const expectedRoles = route.data['expectedRoles']; // Lista de array passados na rota
     const roleMatches = roles.findIndex(
       (role) => expectedRoles.indexOf(role) !== -1
     );

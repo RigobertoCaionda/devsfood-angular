@@ -22,6 +22,7 @@ export class CartProductComponent implements OnInit {
     let index = this.cart.findIndex((item) => item.id == this.product.id);
     this.cart[index].qt++;
     this.productService.setCartValue(this.cart);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
   handleMinusClick() {
     let index = this.cart.findIndex((item) => item.id == this.product.id);
@@ -31,5 +32,6 @@ export class CartProductComponent implements OnInit {
       this.cart.splice(index, 1);
     }
     this.productService.setCartValue(this.cart);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 }

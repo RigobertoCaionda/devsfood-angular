@@ -69,30 +69,7 @@
         formControlName="confirmPassword"
       />
     </div>
-    <div
-      class="gender"
-      [ngClass]="{
-        'second-group': page !== 2
-      }"
-    >
-      Sexo:
-      <div class="gender-inputs">
-        <input
-          type="radio"
-          name="gender"
-          value="1"
-          formControlName="gender"
-        />
-        <span>Masculino</span>
-        <input
-          type="radio"
-          name="gender"
-          value="0"
-          formControlName="gender"
-        />
-        <span>Feminino</span>
-      </div>
-    </div>
+
     <div
       class="input-area"
       [ngClass]="{
@@ -103,24 +80,6 @@
       <select formControlName="roleId">
         <option [value]="role.id" *ngFor="let role of roles">{{ role.name }}</option>
       </select>
-    </div>
-    <div
-      class="checkbox-area"
-      [ngClass]="{
-        'second-group': page !== 2
-      }"
-    >
-      <p>Selecione uma ou várias permissões:</p>
-      <div class="checkbox">
-        <div class="wrapper"><input type="checkbox" formControlName="createPermission" /> <span>Criar</span></div>
-        <div class="wrapper"><input type="checkbox" formControlName="editPermission" /> <span>Editar</span></div>
-        <div class="wrapper">
-          <input type="checkbox" formControlName="readPermission" /> <span>Consultar</span>
-        </div>
-        <div class="wrapper">
-          <input type="checkbox" formControlName="updatePermission" /> <span>Atualizar</span>
-        </div>
-      </div>
     </div>
 
     <div class="controls">

@@ -7,6 +7,7 @@ import { SigninComponent } from './views/signin/signin.component';
 import { TesteComponent } from './views/teste/teste.component';
 import { HasRoleGuard } from './core/guards/has-role.guard';
 import { ProfileComponent } from './views/profile/profile.component';
+import { UserUpdateFormComponent } from './views/profile/user-update-form/user-update-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,16 +30,22 @@ const routes: Routes = [
     },
   },
   {
+    path: 'profile/update',
+    component: UserUpdateFormComponent,
+    canActivate: [AuthGuard, HasRoleGuard],
+    data: {
+      expectedRoles: ['administrador', 'usuario'],
+    },
+  },
+  {
     path: 'admin',
     loadChildren: () =>
-    import('./admin/admin.module').then(
-      (mod) => mod.AdminModule
-    ),
+      import('./admin/admin.module').then((mod) => mod.AdminModule),
     canActivate: [AuthGuard, HasRoleGuard],
     canLoad: [AuthGuard],
     data: {
-      expectedRoles: ['administrador']
-    }
+      expectedRoles: ['administrador'],
+    },
   },
   { path: '**', component: NotfoundComponent },
 ];

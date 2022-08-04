@@ -64,5 +64,6 @@ export class ModalComponent implements OnInit {
     this.productService.setCartValue(this.cart);
     this.cancelBtnClicked.emit('clicado');
     this.qt = 1;
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 }

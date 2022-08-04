@@ -8,9 +8,9 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class ProductService {
   search = new BehaviorSubject<string>('');
-  cart = new BehaviorSubject<any[]>([]);
+  cart = new BehaviorSubject<any[]>(JSON.parse(localStorage.getItem('cart') as string) || []);
 
-  constructor(private apiService: ApiService, private http: HttpClient) {}
+  constructor(private apiService: ApiService) {}
 
   getCategories(): Observable<any> {
     return this.apiService.get('/categories');

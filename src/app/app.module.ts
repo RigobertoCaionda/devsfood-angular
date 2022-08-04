@@ -21,6 +21,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { Teste2Component } from './views/teste2/teste2.component';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { ProfileComponent } from './views/profile/profile.component';
+import { UserUpdateFormComponent } from './views/profile/user-update-form/user-update-form.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductItemComponent,
     CartProductComponent,
     Teste2Component,
-    ProfileComponent
+    ProfileComponent,
+    UserUpdateFormComponent
   ],
   imports: [
     BrowserModule,

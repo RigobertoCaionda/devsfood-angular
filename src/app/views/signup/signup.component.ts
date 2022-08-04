@@ -30,12 +30,7 @@ export class SignupComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
       confirmPassword: [null, [Validators.required]],
-      gender: [null],
       roleId: [null, [Validators.required]],
-      createPermission: [null],
-      editPermission: [null],
-      readPermission: [null],
-      updatePermission: [null],
     });
     this.rolesService.getRoles().subscribe({
       next: json => this.roles = json.data,

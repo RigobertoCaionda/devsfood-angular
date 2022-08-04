@@ -8,7 +8,6 @@ const routes: Routes = [
   {
     path: '',
     component: Teste2Component
-    // Verificar ao ativar rotas filhas depois, só aceita se ele tiver a permissao necessaria
   },
   {
     path: 'signup',
