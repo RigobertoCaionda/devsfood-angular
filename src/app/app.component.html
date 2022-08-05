@@ -13,7 +13,8 @@
       <a routerLink="/profile" routerLinkActive="active"><img src="../assets/profile.png"></a>
     </div>
    
-    <div class="menu-item" tooltip="{{ 'admin' | translate }}" placement="right" [showDelay]="200">
+    <div class="menu-item" tooltip="{{ 'admin' | translate }}" placement="right" [showDelay]="200"
+    *ngIf="!this.roleVerification(['usuario'])">
       <a routerLink="/admin" routerLinkActive="active"><img src="../assets/adm.png"></a>
     </div>
   </div>
@@ -37,8 +38,8 @@
 
   <div style="position: absolute; bottom: 0; left: 0;">
     <div>{{ language }}</div>
-    <div (click)="switchLanguage('en')">{{ 'english' | translate }}</div>
-    <div (click)="switchLanguage('pt')">{{ 'portuguese' | translate }}</div>
+    <div (click)="switchLanguage('en')" class="language">{{ 'english' | translate }}</div>
+    <div (click)="switchLanguage('pt')" class="language">{{ 'portuguese' | translate }}</div>
   </div>
 
   <div class="cart">

@@ -77,11 +77,18 @@
       }"
     >
       Selecione uma função:
-      <select formControlName="roleId">
+      <select
+        formControlName="roleId"
+        [ngClass]="this.helperService.applyCssError(form, 'roleId')"
+      >
         <option [value]="role.id" *ngFor="let role of roles">
           {{ role.name }}
         </option>
       </select>
+      <app-error
+        [showError]="this.helperService.verifyValidTouched(form, 'roleId')"
+        errorMsg="Preencha corretamente a função"
+      ></app-error>
     </div>
 
     <div class="controls">

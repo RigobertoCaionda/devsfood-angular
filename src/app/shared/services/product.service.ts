@@ -10,14 +10,17 @@ export class ProductService {
   search = new BehaviorSubject<string>('');
   cart = new BehaviorSubject<any[]>(
     JSON.parse(localStorage.getItem('cart') as string) || []
-  );
-
-  constructor(private apiService: ApiService) {}
-
-  getCategories(): Observable<any> {
-    return this.apiService.get('/categories');
-  }
-
+    );
+    
+    constructor(private apiService: ApiService) {}
+    
+    getCategories(): Observable<any> {
+      return this.apiService.get('/categories');
+    }
+    
+    getAllProductsWithNoPagination(): Observable<any> {
+      return this.apiService.get('/product/find/all/no-pagination');
+    }
   getProducts(
     category: number,
     search: string,
@@ -45,6 +48,9 @@ export class ProductService {
     return this.apiService.post_with_upload('/product', fData);
   }
 
+  update(id: number, fData: FormData) {
+    return this.apiService.post_with_upload(`/product/${id}`, fData);
+  }
   setCartValue(product: any) {
     this.cart.next(product);
   }

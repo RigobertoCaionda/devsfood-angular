@@ -46,7 +46,11 @@ export class AuthService {
   }
 
   getRoles() {
-    if (!this.getToken()) {
+    if (
+      this.getToken() == 'undefined' ||
+      this.getToken() == 'null' ||
+      this.getToken() == ''
+    ) {
       return [''];
     }
     let role = JSON.parse(atob(this.getToken().split('.')[1]));

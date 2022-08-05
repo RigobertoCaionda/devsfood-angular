@@ -1,6 +1,6 @@
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1 class="title">{{ "signup_page" | translate }}</h1>
+    <h1 class="title">Editar usuário</h1>
     <div class="error-msg" *ngIf="error !== ''">{{ error }}</div>
     <input
       type="text"
@@ -35,12 +35,15 @@
       errorMsg="Preencha corretamente a senha"
     ></app-error>
 
-    Selecione uma função:
-    <select formControlName="roleId">
-      <option [value]="role.id" *ngFor="let role of roles">
-        {{ role.name }}
-      </option>
-    </select>
+    <div *ngIf="this.roleVerification(['administrador'])">
+        <p>Selecione uma função:</p>
+        <select formControlName="roleId" style="width: 100%;">
+        <option [value]="role.id" *ngFor="let role of roles">
+            {{ role.name }}
+        </option>
+        </select>
+    </div>
     <button>Atualizar</button>
   </form>
 </div>
+ 

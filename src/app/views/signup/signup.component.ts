@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
         const control = this.form.get(field);
         control?.markAsDirty();
       });
-      return;
+      return; 
     }
     if (
       this.form.get('password')?.value !==
@@ -76,7 +76,7 @@ export class SignupComponent implements OnInit {
       next: (json) => {
         this.authService.doLogin(json.token);
         window.location.href = '/home';
-      },
+      }, 
       error: (error: HttpErrorResponse) => (this.error = error.error.message),
     });
   }

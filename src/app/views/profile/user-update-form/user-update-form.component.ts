@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Role } from 'src/app/core/models/role';
 import { User } from 'src/app/core/models/user';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { HelperService } from 'src/app/shared/services/helper.service';
 import { RolesService } from 'src/app/shared/services/roles.service';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -16,12 +17,14 @@ export class UserUpdateFormComponent implements OnInit {
   error = '';
   form!: FormGroup;
   roles: Role[] = [];
+  userRole = '';
   me: any;
   constructor(
     public helperService: HelperService,
     private formBuilder: FormBuilder,
     private rolesService: RolesService,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -31,10 +34,13 @@ export class UserUpdateFormComponent implements OnInit {
       password: [null],
       roleId: [null],
     });
-    this.rolesService.getRoles().subscribe({
-      next: (json) => (this.roles = json.data),
-      error: (error) => console.log(error),
-    });
+    this.userRole = this.authService.getRoles()[0];    
+    if(this.roleVerification(['administrador'])) {
+      this.rolesService.getRoles().subscribe({
+        next: (json) => (this.roles = json.data),
+        error: (error) => console.log(error),
+      });
+    }
     this.userService.me().subscribe({
       next: (json: any) => {
         this.me = json.data;
@@ -81,5 +87,14 @@ export class UserUpdateFormComponent implements OnInit {
       next: (json) => alert('Usuário atualizado com sucess'),
       error: (error: HttpErrorResponse) => (this.error = error.error.message),
     });
+  }
+
+  roleVerification(expectedRoles: string[]) { // Deve ir num servico pq pode ser usado noutro lugar além daqui
+    let index = expectedRoles.findIndex(item => item == this.userRole);
+    if(index > -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
