@@ -84,7 +84,7 @@ export class UserUpdateFormComponent implements OnInit {
     }
 
     this.userService.update(this.me.id, updateObj).subscribe({
-      next: (json) => alert('Usuário atualizado com sucess'),
+      next: (json) => alert('Usuário atualizado com sucesso!'),
       error: (error: HttpErrorResponse) => (this.error = error.error.message),
     });
   }
