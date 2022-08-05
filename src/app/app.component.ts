@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
     this.productService.setSearchValue(event); // Mudando o valor para toda aplicacao sempre que houver alteracao
   }
 
-  roleVerification(expectedRoles: string[]) { // Deve ir num servico pq pode ser usado noutro lugar além daqui
+  roleVerification(expectedRoles: string[]) {
     let index = expectedRoles.findIndex(item => item == this.userRole);
     if(index > -1) {
       return true;

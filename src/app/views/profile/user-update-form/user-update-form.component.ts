@@ -89,7 +89,7 @@ export class UserUpdateFormComponent implements OnInit {
     });
   }
 
-  roleVerification(expectedRoles: string[]) { // Deve ir num servico pq pode ser usado noutro lugar além daqui
+  roleVerification(expectedRoles: string[]) {
     let index = expectedRoles.findIndex(item => item == this.userRole);
     if(index > -1) {
       return true;
