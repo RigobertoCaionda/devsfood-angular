@@ -2,7 +2,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Role } from 'src/app/core/models/role';
-import { User } from 'src/app/core/models/user';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { HelperService } from 'src/app/shared/services/helper.service';
 import { RolesService } from 'src/app/shared/services/roles.service';
