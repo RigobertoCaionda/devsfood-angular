@@ -46,7 +46,10 @@ export class ApiService {
 
   post_with_upload(path: string, body = {}): Observable<any> {
     // Neste post não devemos fazer o stringify do body já que não estamos passando um json, fazemos stringify caso estejamos passando um json.
-    return this.http.post(this.baseURL + path, body);
+    return this.http.post(this.baseURL + path, body, {
+      observe: 'events',
+      reportProgress: true
+    });
   }
 
   delete(path: string): Observable<any> {
