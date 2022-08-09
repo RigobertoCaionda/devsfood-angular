@@ -1,4 +1,8 @@
-import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpEventType,
+} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -69,19 +73,20 @@ export class CreatePproductFormComponent implements OnInit {
     }
 
     this.productService.createProducts(fData).subscribe({
-      error: (error: HttpErrorResponse) => this.error = error.error.message,
+      error: (error: HttpErrorResponse) => (this.error = error.error.message),
       next: (event: HttpEvent<Object>) => {
-        if(event.type === HttpEventType.Response) { // Só é igual quando o upload for concluído
-          if((event.body as any).data.id) {
+        if (event.type === HttpEventType.Response) {
+          // Só é igual quando o upload for concluído
+          if ((event.body as any).data.id) {
             this.router.navigateByUrl('/home');
           }
-        } else if(event.type === HttpEventType.UploadProgress) {
-          if(event.total) {
+        } else if (event.type === HttpEventType.UploadProgress) {
+          if (event.total) {
             const percentDone = Math.round((event.loaded * 100) / event.total);
             console.log('Progress', percentDone);
           }
         }
-      }
+      },
     });
   }
 }
