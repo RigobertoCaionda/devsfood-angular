@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { SigninComponent } from './views/signin/signin.component';
 import { SignupComponent } from './views/signup/signup.component';
-import { TesteComponent } from './views/teste/teste.component';
+import { AdminDashboardComponent } from './views/admin-dashboard/admin-dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CategoryComponent } from './views/home/category/category.component';
@@ -32,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    TesteComponent,
+    AdminDashboardComponent,
     CategoryComponent,
     ProductItemComponent,
     CartProductComponent,

@@ -4,12 +4,12 @@ import { CreatePproductFormComponent } from '../shared/layouts/create-pproduct-f
 import { CreateRoleComponent } from '../shared/layouts/create-role/create-role.component';
 import { EditProductFormComponent } from '../shared/layouts/edit-product-form/edit-product-form.component';
 import { SignupComponent } from '../views/signup/signup.component';
-import { TesteComponent } from '../views/teste/teste.component';
+import { AdminDashboardComponent } from '../views/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TesteComponent
+    component: AdminDashboardComponent
   },
   {
     path: 'signup',
