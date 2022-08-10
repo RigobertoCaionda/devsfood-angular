@@ -1,10 +1,10 @@
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <h1 class="title">Página de cadastro de produto</h1>
+      <h1 class="title">{{ 'edit_product_page' | translate }}</h1>
       <div class="error-msg" *ngIf="error !== ''">{{ error }}</div>
       <input
         type="text"
-        placeholder="Digite seu nome aqui"
+        placeholder="{{ 'type_product_name' | translate }}"
         formControlName="name"
         [ngClass]="this.helperService.applyCssError(form, 'name')"
       />
@@ -15,7 +15,7 @@
   
       <input
         type="text"
-        placeholder="Digite o preço"
+        placeholder="{{ 'type_product_price' | translate }}"
         formControlName="price"
         [ngClass]="this.helperService.applyCssError(form, 'price')"
       />
@@ -28,11 +28,10 @@
         type="file"
         multiple
         class="fileInput"
-        placeholder="Selecione uma foto"
         (change)="inputFileChange($event)"
       />
   
-      Selecione uma categoria:
+      {{ 'select_category' | translate }}:
       <select
         formControlName="categoryId"
         [ngClass]="this.helperService.applyCssError(form, 'categoryId')"
@@ -46,7 +45,7 @@
         errorMsg="Preencha corretamente a categoria"
       ></app-error>
 
-      Selecione um produto:
+      {{ 'select_product' | translate }}:
       <select
         formControlName="productId"
         [ngClass]="this.helperService.applyCssError(form, 'productId')"
@@ -59,7 +58,7 @@
         [showError]="this.helperService.verifyValidTouched(form, 'productId')"
         errorMsg="Preencha corretamente a categoria"
       ></app-error>
-      <button class="submit">Salvar</button>
+      <button class="submit">{{ 'save' | translate }}</button>
     </form>
   </div>
   

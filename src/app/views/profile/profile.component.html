@@ -1,6 +1,6 @@
 <div class="container">
     <h1 style="color: #fff;">Perfil de {{ name }}</h1>
-    <a class="signup-btn" routerLink="/profile/update">Editar usuário</a>
-    <button (click)="deleteUser()">Apagar conta</button>
-    <button (click)="this.authService.doLogout()">Sair</button>
+    <a class="signup-btn" routerLink="/profile/update">{{ 'edit_user' | translate }}</a>
+    <button (click)="deleteUser()">{{ 'delete_account' | translate }}</button>
+    <button (click)="this.authService.doLogout()">{{ 'logout' | translate }}</button>
 </div>

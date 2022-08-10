@@ -1,9 +1,9 @@
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <h1 class="title">Apagar produtos</h1>
+      <h1 class="title">{{ 'delete_products' | translate }}</h1>
       <div class="error-msg" *ngIf="error !== ''">{{ error }}</div>
 
-      Selecione um produto:
+      {{ 'select_product' | translate }}:
       <select
         formControlName="productId"
         [ngClass]="this.helperService.applyCssError(form, 'productId')"
@@ -16,7 +16,7 @@
         [showError]="this.helperService.verifyValidTouched(form, 'productId')"
         errorMsg="Preencha corretamente a categoria"
       ></app-error>
-      <button class="submit">Salvar</button>
+      <button class="submit">{{ 'save' | translate }}</button>
     </form>
   </div>
   

@@ -1,10 +1,10 @@
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1 class="title">Editar usuário</h1>
+    <h1 class="title">{{ 'edit_user' |translate }}</h1>
     <div class="error-msg" *ngIf="error !== ''">{{ error }}</div>
     <input
       type="text"
-      placeholder="Digite seu nome aqui"
+      placeholder="{{ 'type_name' | translate }}"
       formControlName="name"
       [ngClass]="this.helperService.applyCssError(form, 'name')"
     />
@@ -36,14 +36,14 @@
     ></app-error>
 
     <div *ngIf="this.roleVerification(['administrador'])">
-        <p>Selecione uma função:</p>
+        <p>{{ 'select_role' | translate }}:</p>
         <select formControlName="roleId" style="width: 100%;">
         <option [value]="role.id" *ngFor="let role of roles">
             {{ role.name }}
         </option>
         </select>
     </div>
-    <button>Atualizar</button>
+    <button>{{ 'update' | translate }}</button>
   </form>
 </div>
  

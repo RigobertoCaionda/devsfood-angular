@@ -13,7 +13,7 @@
     >
       <input
         type="text"
-        placeholder="Digite seu nome aqui"
+        placeholder="{{ 'type_your_name' | translate }}"
         formControlName="name"
         [ngClass]="this.helperService.applyCssError(form, 'name')"
       />
@@ -65,7 +65,7 @@
     >
       <input
         type="password"
-        placeholder="confirm your password here"
+        placeholder="{{ 'confirm_password' | translate }}"
         formControlName="confirmPassword"
       />
     </div>
@@ -76,7 +76,7 @@
         'second-group': page !== 2
       }"
     >
-      Selecione uma função:
+      {{ 'select_role' | translate }}:
       <select
         formControlName="roleId"
         [ngClass]="this.helperService.applyCssError(form, 'roleId')"
@@ -98,7 +98,7 @@
             disabled: page - 1 < 1
           }"
         >
-          Anterior
+          {{ 'previous' | translate }}
         </button>
       </div>
       <div class="next" (click)="handleNextClick()">
@@ -107,7 +107,7 @@
             disabled: page + 1 > pages
           }"
         >
-          Próximo
+          {{ 'next' | translate }}
         </button>
       </div>
     </div>
