@@ -5,6 +5,7 @@ import { CreateRoleComponent } from '../shared/layouts/create-role/create-role.c
 import { EditProductFormComponent } from '../shared/layouts/edit-product-form/edit-product-form.component';
 import { SignupComponent } from '../views/signup/signup.component';
 import { AdminDashboardComponent } from '../views/admin-dashboard/admin-dashboard.component';
+import { DeleteProductComponent } from '../shared/delete-product/delete-product.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'edit_product',
     component: EditProductFormComponent
+  },
+  {
+    path: 'delete_product',
+    component: DeleteProductComponent
   },
   {
     path: 'new_role',

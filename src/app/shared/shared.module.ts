@@ -9,6 +9,7 @@ import { CreatePproductFormComponent } from './layouts/create-pproduct-form/crea
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateRoleComponent } from './layouts/create-role/create-role.component';
 import { EditProductFormComponent } from './layouts/edit-product-form/edit-product-form.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
 
 
 
@@ -20,7 +21,8 @@ import { EditProductFormComponent } from './layouts/edit-product-form/edit-produ
     ErrorComponent,
     CreatePproductFormComponent,
     CreateRoleComponent,
-    EditProductFormComponent
+    EditProductFormComponent,
+    DeleteProductComponent
   ],
   imports: [
     CommonModule,

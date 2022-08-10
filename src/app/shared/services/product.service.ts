@@ -51,6 +51,11 @@ export class ProductService {
   update(id: number, fData: FormData) {
     return this.apiService.post_with_upload(`/product/${id}`, fData);
   }
+
+  delete(id: number) {
+    return this.apiService.delete(`/product/${id}`);
+  }
+  
   setCartValue(product: any) {
     this.cart.next(product);
   }
