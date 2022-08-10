@@ -11,7 +11,7 @@
       />
       <app-error
         [showError]="this.helperService.verifyValidTouched(form, 'name')"
-        errorMsg="Preencha corretamente o nome"
+        errorMsg="{{ 'invalid_name' | translate }}"
       ></app-error>
 
       <input

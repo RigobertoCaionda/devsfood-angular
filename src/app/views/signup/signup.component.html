@@ -19,7 +19,7 @@
       />
       <app-error
         [showError]="this.helperService.verifyValidTouched(form, 'name')"
-        errorMsg="Preencha corretamente o nome"
+        errorMsg="{{ 'invalid_username' | translate }}"
       ></app-error>
     </div>
     <div
@@ -36,7 +36,7 @@
       />
       <app-error
         [showError]="this.helperService.verifyValidTouched(form, 'email')"
-        errorMsg="Preencha corretamente o email"
+        errorMsg="{{ 'invalid_email' | translate }}"
       ></app-error>
     </div>
 
@@ -54,7 +54,7 @@
       />
       <app-error
         [showError]="this.helperService.verifyValidTouched(form, 'password')"
-        errorMsg="Preencha corretamente a senha"
+        errorMsg="{{ 'invalid_password' | translate }}"
       ></app-error>
     </div>
     <div
@@ -87,7 +87,7 @@
       </select>
       <app-error
         [showError]="this.helperService.verifyValidTouched(form, 'roleId')"
-        errorMsg="Preencha corretamente a função"
+        errorMsg="{{ 'invalid_role' | translate }}"
       ></app-error>
     </div>
 

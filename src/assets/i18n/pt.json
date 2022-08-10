@@ -43,5 +43,13 @@
     "type_your_name": "Digite o seu nome aqui",
     "confirm_password": "Confirme sua senha",
     "previous": "Anterior",
-    "next": "Próximo"
+    "next": "Próximo",
+    "invalid_category": "Preencha corretamente a categoria",
+    "invalid_name": "Preencha corretamente o nome da função",
+    "invalid_product_name": "Preencha corretamente o nome do produto",
+    "invalid_price": "Preencha corretamente o preço do produto",
+    "invalid_username": "Preencha corretamente o nome do usuário",
+    "invalid_email": "Preencha corretamente o email do usuário",
+    "invalid_password": "Preencha corretamente a senha do usuário",
+    "invalid_role": "Preencha corretamente o cargo do usuário"
 }

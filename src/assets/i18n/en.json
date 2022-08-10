@@ -43,5 +43,13 @@
     "type_your_name": "Type your name here",
     "confirm_password": "Confirm your password",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "invalid_category": "Fill correctly the category",
+    "invalid_name": "Fill correctly the role name",
+    "invalid_product_name": "Fill correctly the product name",
+    "invalid_price": "Fill correctly the product price",
+    "invalid_username": "Fill correctly the user name",
+    "invalid_email": "Fill correctly the user email",
+    "invalid_password": "Fill correctly the user password",
+    "invalid_role": "Fill correctly the user role"
 }

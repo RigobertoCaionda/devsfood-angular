@@ -14,7 +14,7 @@
       </select>
       <app-error
         [showError]="this.helperService.verifyValidTouched(form, 'productId')"
-        errorMsg="Preencha corretamente a categoria"
+        errorMsg="{{ 'invalid_category' | translate }}"
       ></app-error>
       <button class="submit">{{ 'save' | translate }}</button>
     </form>
