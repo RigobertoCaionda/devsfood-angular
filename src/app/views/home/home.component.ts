@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    window.navigator.vibrate(300);
     this.productService
       .getSearchValue()
       .pipe(debounceTime(2000))
